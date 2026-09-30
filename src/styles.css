@@ -488,7 +488,7 @@ tr.is-current td {
 .sheet-body {
   display: grid;
   gap: 22px;
-  padding: 18px 18px max(22px, env(safe-area-inset-bottom));
+  padding: 18px 18px calc(22px + env(safe-area-inset-bottom));
 }
 
 .sheet-head {
@@ -871,7 +871,7 @@ tr.is-current td {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 12px;
-    padding: 12px 14px max(12px, env(safe-area-inset-bottom));
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
   }
 
   .state,
@@ -1329,7 +1329,7 @@ tr.is-current td {
   max-width: 640px;
   min-height: 100svh;
   margin: 0 auto;
-  padding: clamp(16px, 4vw, 40px) clamp(16px, 4vw, 32px) max(40px, env(safe-area-inset-bottom));
+  padding: clamp(16px, 4vw, 40px) clamp(16px, 4vw, 32px) calc(40px + env(safe-area-inset-bottom));
 }
 
 .page-top {
@@ -1535,7 +1535,7 @@ input {
   .home .home-board {
     display: block;
     overflow: visible;
-    padding: 20px 16px max(28px, env(safe-area-inset-bottom));
+    padding: 20px 16px calc(28px + env(safe-area-inset-bottom));
   }
 
   .home .tapbar {
