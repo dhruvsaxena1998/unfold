@@ -75,17 +75,19 @@
   padding-left: 7cqw;
 }
 
+/* Headroom above the cap is where the glass is held to pour */
 .bottle {
   position: relative;
-  height: min(100%, calc(62cqw * 1.9));
+  height: min(86%, calc(62cqw * 1.9));
   aspect-ratio: 100 / 190;
   container-type: size;
 }
 
-/* The bottle only rises when a hold is poured in; breathing fills it continuously */
+/* The bottle only rises when a hold is poured in, while the stream runs;
+   breathing fills it continuously */
 .bottle-water {
   translate: 0 var(--top);
-  transition: translate 1.6s cubic-bezier(0.45, 0, 0.2, 1) 0.5s;
+  transition: translate 1.25s cubic-bezier(0.45, 0, 0.35, 1) 1.1s;
 }
 
 .mode-breath .bottle-water,
@@ -99,33 +101,194 @@
   gap: 6px;
   width: min(22cqw, 150px);
   margin-bottom: 1%;
-  transform-origin: 10% 90%;
 }
 
+/* The glass turns about its pouring corner; Vessel.jsx flies it to the neck */
 .cup svg {
+  position: relative;
+  z-index: 1;
   width: 100%;
   overflow: visible;
+  transform-origin: 10% 6.667%;
+}
+
+.cup-level {
+  transform-box: view-box;
+  transform-origin: 6px 6px;
 }
 
 .cup-water {
   translate: 0 var(--top);
 }
 
-/* Rest: the glass tips into the bottle and empties */
+/* Rest without the pour (reduced motion) drains the glass where it stands */
 .vessel.is-rest .cup-water {
   transition: translate 1.1s ease-in 0.3s;
 }
 
-.vessel.mode-stretch.is-rest .cup,
-.vessel.mode-routine.is-rest .cup {
-  animation: pour 1.8s cubic-bezier(0.45, 0, 0.2, 1);
+.vessel-scene[data-pour] .cup-label {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
 }
 
-@keyframes pour {
-  40%,
-  60% {
-    rotate: -38deg;
-    translate: -30% -40%;
+.cup-label {
+  transition: opacity 0.6s ease-out 0.2s;
+}
+
+/* The pour, on the same beats as Vessel.jsx (2.8s): the cap lifts aside, the
+   stream runs from the lip to the bottle's floor, the surface rings and heaves */
+.stream {
+  fill: none;
+  stroke: var(--w0);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1 1;
+  opacity: 0.9;
+  stroke-dashoffset: 1;
+}
+
+.vessel-scene[data-pour] .stream {
+  animation: stream 2.8s linear both;
+}
+
+@keyframes stream {
+  0%,
+  34% {
+    stroke-dashoffset: 1;
+    stroke-width: 3.4;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.9, 0.5);
+  }
+  44%,
+  62% {
+    stroke-dashoffset: 0;
+    stroke-width: 3;
+  }
+  66% {
+    stroke-width: 1.8;
+    stroke-dashoffset: 0;
+    animation-timing-function: cubic-bezier(0.55, 0, 0.9, 0.5);
+  }
+  76%,
+  100% {
+    stroke-dashoffset: -1;
+    stroke-width: 1.2;
+  }
+}
+
+.lid {
+  transform-box: fill-box;
+  transform-origin: 0% 100%;
+}
+
+.vessel-scene[data-pour] .lid {
+  animation: lid 2.8s both;
+}
+
+@keyframes lid {
+  0% {
+    animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1);
+  }
+  20%,
+  76% {
+    translate: -21px -3px;
+    rotate: -26deg;
+    animation-timing-function: cubic-bezier(0.45, 0, 0.2, 1);
+  }
+  94%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+}
+
+.splash ellipse {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.85);
+  stroke-width: 0.7;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.splash circle {
+  fill: rgb(255 255 255 / 0.75);
+  opacity: 0;
+}
+
+.vessel-scene[data-pour] .splash ellipse {
+  animation: ring 0.75s cubic-bezier(0.16, 1, 0.3, 1) 1.2s 3 both;
+}
+
+.vessel-scene[data-pour] .splash ellipse + ellipse {
+  animation-delay: 1.55s;
+  animation-iteration-count: 2;
+}
+
+@keyframes ring {
+  from {
+    opacity: 0.9;
+    scale: 0.25;
+  }
+  to {
+    opacity: 0;
+    scale: 1.6;
+  }
+}
+
+.vessel-scene[data-pour] .splash circle {
+  animation: plunge 1.3s ease-out 1.3s both;
+}
+
+.vessel-scene[data-pour] .splash circle:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.vessel-scene[data-pour] .splash circle:nth-child(5) {
+  animation-delay: 1.7s;
+}
+
+.vessel-scene[data-pour] .splash circle:nth-child(6) {
+  animation-delay: 1.9s;
+}
+
+/* Air carried down by the stream comes back up */
+@keyframes plunge {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    translate: 0.6px -10px;
+  }
+}
+
+.bottle .wave {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.vessel-scene[data-pour] .bottle .wave {
+  animation:
+    wave 2.2s linear infinite,
+    heave 2.8s ease-in-out both;
+}
+
+@keyframes heave {
+  0%,
+  40% {
+    scale: 1 1;
+  }
+  52% {
+    scale: 1 2.2;
+  }
+  76% {
+    scale: 1 1.6;
+  }
+  100% {
+    scale: 1 1;
   }
 }
 
@@ -314,6 +477,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .cup,
+  .cup-label,
   .bottle-water,
   .cup-water {
     animation: none !important;
