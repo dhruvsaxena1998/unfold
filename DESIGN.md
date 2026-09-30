@@ -305,3 +305,11 @@ Tide (above) is the default world. Four sibling worlds share its layout, the lab
 **Auto-run controls.** Routines: tap anywhere or Space to pause and resume, Continue at a wait-for-tap between exercises, and Back, +10 s and Skip (on phones a full-width row under the figures). Soft ticks play in the last three seconds of every timed step.
 
 **Sound and touch.** All Web Audio. Theme cues on start, stop, target and finish; breathing turns use the same voices at half volume; the countdown tick is shared by every theme. Ambience is off by default. Each bed is a different kind of sound, not one noise through different filters: Tide surf (separate waves that rise, break bright and wash out), Bloom a two-chord pad, Vessel a babbling brook of bubbles (busier while filling), Dawn birdsong (three calls, panned) over a breeze, Grove rain pattering on leaves. Levels were balanced by measurement to within about 6 dB. Haptics go through `web-haptics` (`src/haptics.js`): selection on taps, nudge on hold start, soft on rest, success on the target and at the end, light on ticks. iOS only allows haptics inside a tap, so automatic changes rely on sound there.
+
+## Brand
+
+**Mark: Seed.** The Bloom blob as a seed, with two leaves opening from its top: it breathes and it grows. The primary icon is *Night* (plum #1c1424 ground, apricot-to-rose seed #ffe0c4 → #f59a86 → #d45a7c, leaves #9cc77a / #78b163); *Sage* (#eef3e4 ground) is the alternate. The favicon drops the halo and highlight and enlarges the seed so it holds at 16 px.
+
+**Wordmark:** "held", lowercase, Nunito 800, tracking -0.03em, in every theme (it does not follow the theme's face). Outlined masters need no font.
+
+Files: `designs/logo/` (icon SVGs and 1024 PNGs, `held-mark.svg`, `favicon.svg`, `held-wordmark*.svg`, `held-lockup.svg/.png`). Shipped: `public/icon.svg`, `favicon.svg`, `held-mark.svg`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`. Home carries the mark and wordmark as its header.

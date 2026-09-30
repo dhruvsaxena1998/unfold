@@ -1039,6 +1039,29 @@ tr.is-current td {
   margin-bottom: 4px !important;
 }
 
+/* The wordmark always sets in Nunito 800, whatever the theme */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: -12px;
+}
+
+.brand img {
+  width: 44px;
+  height: 44px;
+  margin: -4px -2px 0 -6px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
 .row-pair {
   display: grid;
   grid-template-columns: 1fr auto;

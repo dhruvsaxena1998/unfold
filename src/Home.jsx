@@ -39,6 +39,10 @@ export default function Home({ theme, look, routines, breath, setBreath, history
       </div>
       <section className="board home-board" aria-label="Sessions">
         <div className="menu">
+          <header className="brand">
+            <img src="/held-mark.svg" alt="" />
+            <h1>held</h1>
+          </header>
           <section>
             <h2>Stretch</h2>
             <button type="button" className="row" onClick={() => go({ name: 'stretch' })}>

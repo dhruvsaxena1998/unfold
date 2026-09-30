@@ -1,6 +1,6 @@
 // Offline shell: pages network-first, assets cache-first.
-const CACHE = 'held-v1'
-const SHELL = ['/', '/manifest.webmanifest', '/icon-192.png', '/icon-512.png', '/favicon.svg']
+const CACHE = 'held-v2'
+const SHELL = ['/', '/manifest.webmanifest', '/icon-192.png', '/icon-512.png', '/favicon.svg', '/held-mark.svg']
 
 self.addEventListener('install', (e) => {
   // Also precache the hashed JS/CSS/font files the page references, so the first visit works offline.
