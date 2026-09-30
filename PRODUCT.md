@@ -1,6 +1,6 @@
 # Product
 
-**Name:** Held (stretch & breathe).
+**Name:** Unfold (stretch & breathe). Renamed from Held on 2026-09-30; repo github.com/dhruvsaxena1998/unfold.
 
 <!-- impeccable:product-schema 1 -->
 

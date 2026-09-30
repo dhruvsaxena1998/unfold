@@ -1,12 +1,12 @@
 {
-  "name": "Held · stretch & breathe",
-  "short_name": "Held",
+  "name": "Unfold · stretch & breathe",
+  "short_name": "Unfold",
   "description": "A calm hold timer, routines and breathing for rehab stretches.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#1c1424",
+  "background_color": "#1f1b18",
   "theme_color": "#10181c",
   "icons": [
     {

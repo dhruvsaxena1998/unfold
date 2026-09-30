@@ -1,6 +1,6 @@
 ---
-name: Held
-description: Held, a calm stretch and breathing timer. Its default theme, Tide, reads the hold as a harbour tide gauge; the hold floods up an enamel staff, rest is slack water.
+name: Unfold
+description: Unfold, a calm stretch and breathing timer. Its default theme, Tide, reads the hold as a harbour tide gauge; the hold floods up an enamel staff, rest is slack water.
 colors:
   ink: "#10181c"
   ink-raised: "#172227"
@@ -127,9 +127,9 @@ components:
     height: "10px"
 ---
 
-# Design System: Held
+# Design System: Unfold
 
-Held ships five themes; this document leads with the default, **Tide**, and the Themes section covers the other four.
+Unfold ships five themes; this document leads with the default, **Tide**, and the Themes section covers the other four.
 
 ## Default theme: Tide
 
@@ -289,9 +289,9 @@ Tide (above) is the default world. Four sibling worlds share its layout, the lab
 | Theme | Rep | Session | Palette | Type | Corners |
 |---|---|---|---|---|---|
 | **Tide** | Enamel staff floods to the target line | The harbour behind the staff rises toward "High water", and more swell layers come in | ink #10181c, enamel #e9ece6, red #c8322b | Barlow Condensed / Barlow | 3px |
-| **Bloom** | The blob swells toward its orbit, then exhales at rest | The blob's resting size grows through the session toward a faint full-bloom ring | plum #1c1424, apricot #ffb48f, rest lavender #c3b5ff | Nunito 600–800 | pills |
+| **Bloom** | The blob swells toward its orbit, then exhales at rest | The blob's resting size grows through the session toward a faint full-bloom ring | cocoa ground #171213; three flat cut-paper layers, no gradients: hold persimmon #f2875a / clay #b84a33 / oxblood #6e2a24, rest celadon #a3c9b3 / #5f8a77 / #2f4a40 | Nunito 600–800 | pills |
 | **Vessel** (light) | A small glass fills to its fill line; at rest it tips and pours into the bottle | The bottle fills to the session goal (quarter marks on its left) | fog #f4f7f9, navy #13233a, cerulean #1f5fa8 | Manrope 400–800 | 10px |
-| **Dawn** | The sun's halo blazes out to a dashed ring, and fades at rest | The sun climbs from first light to "High morning" as the sky warms and the stars fade | indigo #1a1630, sun gold #f6b26b, dusk lilac #d4b2f0 | Bricolage Grotesque 500–700 | 6px |
+| **Dawn** | The sun's flat halo rings widen to a dashed ring, and fade at rest | The sun climbs from first light to "High morning"; the sky is printed in seven hard woodblock bands that warm from slate through rose-brown to apricot, and the far hills take the sky's blue | slate ink #121824, sun #ffe3ad, accent #f2b35e, rest blue hour #9cc3e6 (a colour-blend wash over the scene) | Bricolage Grotesque 500–700 | 6px |
 | **Grove** | A sapling is planted for each rep and grows leaves, then a bud once it reaches its goal; planned reps show as empty plots | The tree grows a trunk and branches and leafs out, then blossoms at the goal | sage sky #eef3e4, forest board #15201a, leaf #5f9a52, blossom #f4b6c2 | Bitter 600–700 | 8px |
 
 **Motion rule.** Anything driven by the clock is written every frame with no CSS transition while it moves; a transition that restarts every frame freezes the value. Transitions only carry discrete changes: the bottle rising when a glass is poured, leaves and buds popping in (0.7s overshoot), and levels easing back at idle. Reduced motion stops the wobble, waves, bubbles, sway and eases.
@@ -308,8 +308,8 @@ Tide (above) is the default world. Four sibling worlds share its layout, the lab
 
 ## Brand
 
-**Mark: Seed.** The Bloom blob as a seed, with two leaves opening from its top: it breathes and it grows. The primary icon is *Night* (plum #1c1424 ground, apricot-to-rose seed #ffe0c4 → #f59a86 → #d45a7c, leaves #9cc77a / #78b163); *Sage* (#eef3e4 ground) is the alternate. The favicon drops the halo and highlight and enlarges the seed so it holds at 16 px.
+**Mark: Space.** Three rounded vertebral blocks; the top one, in vermilion, lifts and tilts open: room being made between them. It is drawn from the idea of unfolding, not from any theme. Palette: ink #1f1b18, paper #f2ece2, vermilion #e04a2a (the only part that moves). The app icon is the ink colourway; paper is the alternate. The favicon crops tight to the blocks and rounds the ground so it holds at 16 px.
 
-**Wordmark:** "held", lowercase, Nunito 800, tracking -0.03em, in every theme (it does not follow the theme's face). Outlined masters need no font.
+**Wordmark:** "unfold", lowercase, Manrope 800, tracking -0.035em, in every theme (it does not follow the theme's face). In the Home header the mark is inline SVG: the two lower blocks take the theme's text colour (`currentColor`), the top block stays vermilion.
 
-Files: `designs/logo/` (icon SVGs and 1024 PNGs, `held-mark.svg`, `favicon.svg`, `held-wordmark*.svg`, `held-lockup.svg/.png`). Shipped: `public/icon.svg`, `favicon.svg`, `held-mark.svg`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`. Home carries the mark and wordmark as its header.
+Files: `designs/unfold/` (concept sheet, `unfold-space-ink.svg`/`-paper.svg`, 1024 PNGs, `unfold-mark.svg`, `unfold-favicon.svg`; the other four concepts are kept for reference). Shipped: `public/icon.svg`, `favicon.svg`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`. The Held seed mark in `designs/logo/` is retired.
