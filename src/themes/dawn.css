@@ -1,0 +1,272 @@
+/* Dawn: the sun climbs over the hills as you hold; rest is a still dusk */
+
+:root[data-theme='dawn'] {
+  --bg: #1a1630;
+  --raised: #221d3c;
+  --rule: #372f58;
+  --fg: #fbeee0;
+  --muted: #b4a9cb;
+  --accent: #f6b26b;
+  --accent-hover: #ffc585;
+  --on-accent: #2a1a14;
+  --rest: #d4b2f0;
+  --focus: #8fd6ff;
+  --select: #c7667a;
+  --strip: #f6b26b;
+  --strip-short: #5c5480;
+  --dim-fg: #625a86;
+  --dim-rule: #262043;
+  --scrim: rgb(10 8 24 / 0.6);
+  --display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --text: 'Bricolage Grotesque', system-ui, sans-serif;
+  --display-tune: 0.92;
+}
+
+:root[data-theme='dawn'] .primary,
+:root[data-theme='dawn'] .more,
+:root[data-theme='dawn'] .secondary button,
+:root[data-theme='dawn'] .stepper button,
+:root[data-theme='dawn'] .sounds button,
+:root[data-theme='dawn'] .sheet-head button,
+:root[data-theme='dawn'] .swatch svg {
+  border-radius: 6px;
+}
+
+:root[data-theme='dawn'] .state::before {
+  border-radius: 50%;
+}
+
+:root[data-theme='dawn'] .strip {
+  height: 8px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(to right, #c7667a, #f6b26b);
+}
+
+:root[data-theme='dawn'] .strip.is-short {
+  background: var(--strip-short);
+}
+
+.dawn {
+  background: var(--zenith);
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--horizon) 38%, var(--zenith));
+  transition: filter 2.4s ease-out;
+}
+
+/* Rest: the light holds but cools to dusk */
+.dawn.is-rest .sky,
+.dawn.is-rest .hills {
+  filter: saturate(0.55) brightness(0.82) hue-rotate(-14deg);
+}
+
+.stars {
+  position: absolute;
+  inset: 0 0 45%;
+  opacity: var(--stars);
+  background-image: radial-gradient(1.4px 1.4px at 12% 18%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 32%, #fff 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 44% 12%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 58% 26%, #fff 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 71% 9%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 83% 30%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 91% 15%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 20% 48%, #fff 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 65% 44%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 36% 58%, #fff 50%, transparent 51%);
+  transition: opacity 1.6s ease-out;
+}
+
+.sun {
+  position: absolute;
+  left: 50%;
+  bottom: var(--sun);
+  width: clamp(84px, 18cqmin, 190px);
+  aspect-ratio: 1;
+  translate: -50% 50%;
+  transition: bottom 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The climb is written every frame while it moves */
+.dawn.is-hold .sun,
+.dawn.mode-breath .sun {
+  transition: none;
+}
+
+.disc,
+.halo,
+.sun-goal {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.disc {
+  background: radial-gradient(circle at 50% 45%, #fff6e0, #ffd99c 55%, #ffbf73);
+  box-shadow: 0 0 60px 24px rgb(255 196 120 / 0.3);
+  transition: background 1.6s ease-out;
+}
+
+/* Each hold makes the sun blaze: its halo swells with the rep */
+.halo {
+  background: radial-gradient(circle, rgb(255 214 150 / 0.55), rgb(255 180 120 / 0.18) 45%, transparent 70%);
+  scale: calc(1.2 + var(--flare) * 1.9);
+  opacity: calc(0.35 + var(--flare) * 0.55);
+}
+
+.sun-goal {
+  inset: -95%;
+  border: 1.5px dashed rgb(255 240 220 / 0.6);
+}
+
+.sun-goal.is-reached {
+  border: 2px solid #ffe2b0;
+}
+
+.dawn.is-rest .disc {
+  background: radial-gradient(circle at 50% 45%, #ffe9e0, #f4b3a0 55%, #d9848a);
+}
+
+.sun-label {
+  position: absolute;
+  top: 16px;
+  right: clamp(14px, 4cqw, 32px);
+  margin: 0;
+  color: #fff3e3;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(0.8rem, 2.2cqh, 1rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 8px rgb(20 16 40 / 0.5);
+}
+
+.hills {
+  filter: saturate(0.55) brightness(0.82) hue-rotate(-14deg);
+}
+
+.stars {
+  position: absolute;
+  inset: 0 0 45%;
+  opacity: var(--stars);
+  background-image: radial-gradient(1.4px 1.4px at 12% 18%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 32%, #fff 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 44% 12%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 58% 26%, #fff 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 71% 9%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 83% 30%, #fff 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 91% 15%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 20% 48%, #fff 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 65% 44%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 36% 58%, #fff 50%, transparent 51%);
+  transition: opacity 1.6s ease-out;
+}
+
+.sun {
+  position: absolute;
+  left: 50%;
+  bottom: var(--sun);
+  width: clamp(84px, 20cqmin, 200px);
+  aspect-ratio: 1;
+  translate: -50% 50%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, #fff6e0, #ffd99c 55%, #ffbf73);
+  box-shadow: 0 0 60px 24px rgb(255 196 120 / 0.35), 0 0 180px 80px rgb(255 170 110 / 0.2);
+  transition: bottom 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dawn.is-hold .sun {
+  transition: none;
+}
+
+.dawn.is-rest .sun {
+  background: radial-gradient(circle at 50% 45%, #ffe9e0, #f4b3a0 55%, #d9848a);
+  box-shadow: 0 0 60px 24px rgb(230 150 160 / 0.28), 0 0 160px 70px rgb(200 120 160 / 0.16);
+}
+
+.altitude {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  border-top: 1px dashed rgb(255 240 220 / 0.55);
+}
+
+.altitude span {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  color: #fff3e3;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(0.8rem, 2.2cqh, 1rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 8px rgb(20 16 40 / 0.5);
+}
+
+.altitude.is-reached {
+  border-top: 2px solid #ffd99c;
+}
+
+.hills {
+  position: absolute;
+  inset: auto 0 0;
+  width: 100%;
+  height: 46%;
+  transition: filter 2.4s ease-out;
+}
+
+.hill-far {
+  fill: color-mix(in oklab, var(--horizon) 38%, #2a2450);
+}
+
+.hill-mid {
+  fill: color-mix(in oklab, var(--horizon) 16%, #1d1938);
+}
+
+.hill-near {
+  fill: #141128;
+}
+
+.dawn-face {
+  position: absolute;
+  inset: auto 0 0;
+  height: calc(40% - 30px);
+  margin-bottom: 52px;
+  container-type: size;
+  color: var(--fg);
+  pointer-events: none;
+}
+
+.dawn.is-rest .dawn-face {
+  color: var(--rest);
+}
+
+.dawn .numeral {
+  font-weight: 600;
+  font-size: min(64cqh, calc(84cqw / (var(--chars) * 0.6)));
+  letter-spacing: -0.04em;
+}
+
+.dawn .face-status {
+  font-weight: 700;
+  font-size: clamp(0.9rem, 9cqh, 1.6rem);
+  letter-spacing: 0.1em;
+}
+
+.dawn .face-unit {
+  font-size: clamp(0.8rem, 7cqh, 1.2rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky,
+  .sun,
+  .disc,
+  .hills,
+  .stars {
+    transition: none;
+  }
+}

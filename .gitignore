@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.DS_Store
+
+# Local and generated Impeccable working files
+.impeccable/config.local.json
+.impeccable/review/
+.impeccable/questions/
+.impeccable/hook.cache.json
+.impeccable/direction-payload.json

@@ -1,0 +1,178 @@
+/* Bloom: a soft living blob that swells with the hold and exhales at rest */
+
+:root[data-theme='bloom'] {
+  --bg: #1c1424;
+  --raised: #251b2f;
+  --rule: #3a2d47;
+  --fg: #f6e9f0;
+  --muted: #b7a3bf;
+  --accent: #ffb48f;
+  --accent-hover: #ffc6a8;
+  --on-accent: #2a1320;
+  --rest: #c3b5ff;
+  --focus: #ffd27a;
+  --select: #c9487a;
+  --strip: #ffb48f;
+  --strip-short: #6e5a78;
+  --dim-fg: #6d5c77;
+  --dim-rule: #2b2136;
+  --scrim: rgb(12 7 16 / 0.6);
+  --display: 'Nunito', system-ui, sans-serif;
+  --text: 'Nunito', system-ui, sans-serif;
+  --display-tune: 0.94;
+}
+
+:root[data-theme='bloom'] .primary,
+:root[data-theme='bloom'] .more,
+:root[data-theme='bloom'] .secondary button,
+:root[data-theme='bloom'] .stepper button,
+:root[data-theme='bloom'] .sounds button,
+:root[data-theme='bloom'] .sheet-head button {
+  border-radius: 999px;
+}
+
+:root[data-theme='bloom'] .primary {
+  border-radius: 28px;
+}
+
+:root[data-theme='bloom'] .strip,
+:root[data-theme='bloom'] .state::before {
+  border-radius: 999px;
+}
+
+:root[data-theme='bloom'] .swatch svg {
+  border-radius: 50%;
+}
+
+.bloom {
+  --b0: #d9bfd6;
+  --b1: #a784a9;
+  --b2: #6d4f77;
+  --ink-on: #1c1424;
+  background: radial-gradient(circle at 50% 44%, #2e2039, #1c1424 72%);
+}
+
+.bloom.is-hold {
+  --b0: #ffd9bd;
+  --b1: #f59a86;
+  --b2: #d45a7c;
+}
+
+.bloom.is-rest {
+  --b0: #e6e0ff;
+  --b1: #ab9df2;
+  --b2: #6f5fc9;
+}
+
+.blob {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 24px);
+  translate: -50% -50%;
+  width: min(100cqw, calc(100cqh - 48px));
+  height: min(100cqw, calc(100cqh - 48px));
+  overflow: visible;
+}
+
+.blob stop {
+  transition: stop-color 1.4s ease-out;
+}
+
+.b0 {
+  stop-color: var(--b0);
+}
+
+.b1 {
+  stop-color: var(--b1);
+}
+
+.b2 {
+  stop-color: var(--b2);
+}
+
+.blob-0 {
+  opacity: 0.16;
+}
+
+.blob-1 {
+  opacity: 0.32;
+}
+
+.full-bloom {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 0.5;
+  stroke-dasharray: 0.6 2.4;
+  stroke-linecap: round;
+}
+
+.bloom.is-paused .blob {
+  opacity: 0.7;
+}
+
+.orbit circle {
+  fill: none;
+  stroke: var(--b0);
+  stroke-width: 0.6;
+  stroke-dasharray: 1.4 2.6;
+  stroke-linecap: round;
+  opacity: 0.7;
+  transition: stroke 0.8s ease-out;
+}
+
+.orbit text {
+  fill: var(--muted);
+  font-family: var(--display);
+  font-size: 5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
+
+.orbit.is-reached circle {
+  stroke: #ffe2c9;
+  stroke-dasharray: none;
+  stroke-width: 0.9;
+}
+
+.orbit.is-reached text {
+  fill: #ffe2c9;
+}
+
+.bloom-face {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 24px);
+  translate: -50% -50%;
+  width: min(40cqw, calc(40cqh - 20px));
+  height: min(40cqw, calc(40cqh - 20px));
+  container-type: size;
+  color: var(--ink-on);
+  pointer-events: none;
+}
+
+.bloom .face {
+  padding: 0 6%;
+}
+
+.bloom .numeral {
+  font-weight: 800;
+  font-size: min(48cqh, calc(80cqw / (var(--chars) * 0.6)));
+  letter-spacing: -0.03em;
+}
+
+.bloom .face-status {
+  font-weight: 800;
+  font-size: max(0.95rem, 9cqh);
+  letter-spacing: 0.04em;
+}
+
+.bloom .face-unit {
+  font-weight: 700;
+  font-size: max(0.85rem, 7cqh);
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-wrap: balance;
+  opacity: 0.75;
+}

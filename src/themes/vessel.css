@@ -1,0 +1,327 @@
+/* Vessel: a clear glass bottle filling with water, in cool morning light */
+
+:root[data-theme='vessel'] {
+  --bg: #ffffff;
+  --raised: #eef3f7;
+  --rule: #d0dbe3;
+  --fg: #13233a;
+  --muted: #56687c;
+  --accent: #1f5fa8;
+  --accent-hover: #2a6fbf;
+  --on-accent: #ffffff;
+  --rest: #0f7068;
+  --focus: #d4572a;
+  --select: #9fd0f5;
+  --strip: #4d9ee0;
+  --strip-short: #b8c7d3;
+  --dim-fg: #9aa9b6;
+  --dim-rule: #e0e7ec;
+  --scrim: rgb(19 35 58 / 0.35);
+  --display: 'Manrope', system-ui, sans-serif;
+  --text: 'Manrope', system-ui, sans-serif;
+  --display-tune: 0.9;
+  color-scheme: light;
+}
+
+:root[data-theme='vessel'] .board {
+  border-left: 1px solid var(--rule);
+}
+
+:root[data-theme='vessel'] .primary,
+:root[data-theme='vessel'] .more,
+:root[data-theme='vessel'] .secondary button,
+:root[data-theme='vessel'] .stepper button,
+:root[data-theme='vessel'] .sounds button,
+:root[data-theme='vessel'] .sheet-head button,
+:root[data-theme='vessel'] .swatch svg {
+  border-radius: 10px;
+}
+
+:root[data-theme='vessel'] .strip {
+  border-radius: 5px;
+}
+
+:root[data-theme='vessel'] .state,
+:root[data-theme='vessel'] .primary,
+:root[data-theme='vessel'] .tapbar strong {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+:root[data-theme='vessel'] .fig dd {
+  font-weight: 500;
+}
+
+.vessel {
+  --w0: #86cbf2;
+  --w1: #2d6db8;
+  --ink-dry: #13233a;
+  --ink-wet: #ffffff;
+  background: linear-gradient(to bottom, #eef3f6, #d9e4ec);
+}
+
+.vessel.is-rest {
+  --w0: #9cc3d9;
+  --w1: #4d7e9e;
+}
+
+.vessel-scene {
+  position: absolute;
+  inset: 3cqh 0 calc(52px + 3cqh);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(10px, 4cqw, 48px);
+  padding-left: 7cqw;
+}
+
+.bottle {
+  position: relative;
+  height: min(100%, calc(62cqw * 1.9));
+  aspect-ratio: 100 / 190;
+  container-type: size;
+}
+
+/* The bottle only rises when a hold is poured in; breathing fills it continuously */
+.bottle-water {
+  translate: 0 var(--top);
+  transition: translate 1.6s cubic-bezier(0.45, 0, 0.2, 1) 0.5s;
+}
+
+.mode-breath .bottle-water,
+.mode-breath .cup-water {
+  transition: none;
+}
+
+.cup {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: min(22cqw, 150px);
+  margin-bottom: 1%;
+  transform-origin: 10% 90%;
+}
+
+.cup svg {
+  width: 100%;
+  overflow: visible;
+}
+
+.cup-water {
+  translate: 0 var(--top);
+}
+
+/* Rest: the glass tips into the bottle and empties */
+.vessel.is-rest .cup-water {
+  transition: translate 1.1s ease-in 0.3s;
+}
+
+.vessel.mode-stretch.is-rest .cup,
+.vessel.mode-routine.is-rest .cup {
+  animation: pour 1.8s cubic-bezier(0.45, 0, 0.2, 1);
+}
+
+@keyframes pour {
+  40%,
+  60% {
+    rotate: -38deg;
+    translate: -30% -40%;
+  }
+}
+
+.cup-label {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(0.78rem, 1.8cqh, 0.95rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.bottle svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.bottle stop {
+  transition: stop-color 1.4s ease-out;
+}
+
+.w0 {
+  stop-color: var(--w0);
+}
+
+.w1 {
+  stop-color: var(--w1);
+}
+
+.glass {
+  fill: rgb(255 255 255 / 0.5);
+  stroke: #8aa3b6;
+  stroke-width: 1.4;
+  filter: drop-shadow(0 6px 10px rgb(19 35 58 / 0.12));
+}
+
+.glint {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+
+.cap {
+  fill: #1d3a5f;
+}
+
+.cap-ridge {
+  stroke: #36577f;
+  stroke-width: 0.8;
+}
+
+.wave {
+  translate: -2px 0;
+  animation: wave 4s linear infinite;
+}
+
+.vessel.is-hold .wave {
+  animation-duration: 2.2s;
+}
+
+.vessel.is-rest .wave,
+.vessel.is-paused .wave {
+  animation-play-state: paused;
+}
+
+@keyframes wave {
+  to {
+    translate: -100px 0;
+  }
+}
+
+.bubbles circle {
+  fill: rgb(255 255 255 / 0.7);
+  opacity: 0;
+}
+
+.vessel.is-hold:not(.is-paused) .bubbles circle {
+  animation: bubble 3.6s ease-in infinite;
+}
+
+@keyframes bubble {
+  0% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    translate: 2px calc(var(--rise) * -1px);
+  }
+}
+
+.marks path {
+  stroke: #6f8aa0;
+  stroke-width: 0.7;
+}
+
+.marks text {
+  fill: #56687c;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 5.4px;
+  text-anchor: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.marks text.is-goal {
+  fill: var(--accent);
+  font-weight: 800;
+}
+
+.fill-line path {
+  stroke: #d4572a;
+  stroke-width: 0.9;
+  stroke-dasharray: 2 1.6;
+}
+
+.fill-line text {
+  fill: #b5451d;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 4.6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fill-line.is-reached path {
+  stroke: #ffffff;
+  stroke-dasharray: none;
+}
+
+.fill-line.is-reached text {
+  fill: #ffffff;
+}
+
+.vessel .face-dry,
+.vessel .face-wet {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.vessel .face-dry {
+  color: var(--ink-dry);
+  clip-path: inset(0 0 var(--wet) 0);
+}
+
+.vessel .face-wet {
+  color: var(--ink-wet);
+  clip-path: inset(calc(100% - var(--wet)) 0 0 0);
+}
+
+.vessel.is-rest .face-dry {
+  color: #0f5f59;
+}
+
+.vessel .face {
+  padding: 36cqh 14cqw 9cqh 14cqw;
+}
+
+.vessel .numeral {
+  font-weight: 400;
+  font-size: min(22cqh, calc(60cqw / (var(--chars) * 0.6)));
+  letter-spacing: -0.04em;
+}
+
+.vessel .face-status {
+  font-weight: 700;
+  font-size: clamp(0.85rem, 3.4cqh, 1.4rem);
+  letter-spacing: 0.1em;
+}
+
+.vessel .face-unit {
+  font-weight: 600;
+  font-size: clamp(0.78rem, 2.6cqh, 1.05rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cup,
+  .bottle-water,
+  .cup-water {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .wave,
+  .vessel.is-hold:not(.is-paused) .bubbles circle {
+    animation: none;
+  }
+}

@@ -1,0 +1,445 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T13:02:21+00:00",
+  "title": "Design System: Tide",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Harbour Ink",
+        "canonical": "oklch(20.3% 0.014 230)",
+        "tonalRamp": [
+          "#050c10",
+          "#1e262b",
+          "#3b4448",
+          "#596368",
+          "#7a8489",
+          "#9ca7ac",
+          "#c0cbd1",
+          "#e5f1f6"
+        ]
+      },
+      "ink-raised": {
+        "role": "neutral",
+        "displayName": "Raised Ink",
+        "canonical": "oklch(24.4% 0.018 228)",
+        "tonalRamp": [
+          "#040d11",
+          "#1c272c",
+          "#38444a",
+          "#576469",
+          "#78858b",
+          "#9aa8ae",
+          "#beccd3",
+          "#e3f1f8"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Board Rule",
+        "canonical": "oklch(33.8% 0.022 224)",
+        "tonalRamp": [
+          "#050c10",
+          "#1c272b",
+          "#38444a",
+          "#55646a",
+          "#75858c",
+          "#99a8ae",
+          "#beccd1",
+          "#e5f1f6"
+        ]
+      },
+      "enamel": {
+        "role": "primary",
+        "displayName": "Staff Enamel",
+        "canonical": "oklch(93.9% 0.009 129)",
+        "tonalRamp": [
+          "#0a0c08",
+          "#242621",
+          "#41433e",
+          "#60625d",
+          "#81837e",
+          "#a3a6a0",
+          "#c7cac4",
+          "#edf0ea"
+        ]
+      },
+      "enamel-shade": {
+        "role": "primary",
+        "displayName": "Staff Shade Enamel",
+        "canonical": "oklch(87.6% 0.011 137)",
+        "tonalRamp": [
+          "#090c08",
+          "#232621",
+          "#3f433e",
+          "#5e635d",
+          "#7f847d",
+          "#a2a7a0",
+          "#c6cbc4",
+          "#ebf0e9"
+        ]
+      },
+      "red": {
+        "role": "secondary",
+        "displayName": "E-Mark Red",
+        "canonical": "oklch(55.1% 0.188 28)",
+        "tonalRamp": [
+          "#2d0000",
+          "#560000",
+          "#820002",
+          "#b0221e",
+          "#d84c41",
+          "#f9796b",
+          "#ffa496",
+          "#ffcfc2"
+        ]
+      },
+      "red-light": {
+        "role": "secondary",
+        "displayName": "Signal Red Light",
+        "canonical": "oklch(68.6% 0.168 28)",
+        "tonalRamp": [
+          "#2a0000",
+          "#520000",
+          "#7c100d",
+          "#a92f27",
+          "#d15549",
+          "#f17f71",
+          "#ffa99b",
+          "#ffd3c6"
+        ]
+      },
+      "air": {
+        "role": "neutral",
+        "displayName": "Air",
+        "canonical": "oklch(83.9% 0.012 170)",
+        "tonalRamp": [
+          "#060d0a",
+          "#1f2724",
+          "#3c4441",
+          "#5b6460",
+          "#7c8581",
+          "#9ea8a4",
+          "#c2ccc8",
+          "#e7f1ed"
+        ]
+      },
+      "water-deep": {
+        "role": "neutral",
+        "displayName": "Deep Water",
+        "canonical": "oklch(29.6% 0.043 205)",
+        "tonalRamp": [
+          "#000e11",
+          "#102a2c",
+          "#2a484b",
+          "#45686c",
+          "#668a8e",
+          "#8bacb0",
+          "#b2d0d3",
+          "#daf4f7"
+        ]
+      },
+      "sea": {
+        "role": "neutral",
+        "displayName": "Harbour Sea",
+        "canonical": "oklch(32.5% 0.047 206)",
+        "tonalRamp": [
+          "#000f11",
+          "#0d2a2d",
+          "#26484c",
+          "#41696e",
+          "#628a90",
+          "#88adb1",
+          "#b0d0d4",
+          "#d8f5f8"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface Water",
+        "canonical": "oklch(48.2% 0.071 200)",
+        "tonalRamp": [
+          "#001013",
+          "#002c2f",
+          "#0b4b4f",
+          "#296d70",
+          "#4d8f92",
+          "#77b1b4",
+          "#a1d4d7",
+          "#ccf8fb"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Sea Mist",
+        "canonical": "oklch(74.7% 0.023 190)",
+        "tonalRamp": [
+          "#050d0c",
+          "#1b2827",
+          "#364644",
+          "#536564",
+          "#748785",
+          "#98a9a8",
+          "#bdcdcb",
+          "#e4f2f0"
+        ]
+      },
+      "slack": {
+        "role": "tertiary",
+        "displayName": "Slack Teal",
+        "canonical": "oklch(46.7% 0.070 198)",
+        "tonalRamp": [
+          "#001012",
+          "#002c2e",
+          "#0d4b4d",
+          "#2b6d6f",
+          "#4e8f90",
+          "#78b1b2",
+          "#a2d4d5",
+          "#cdf8f9"
+        ]
+      },
+      "slack-light": {
+        "role": "tertiary",
+        "displayName": "Slack Teal Light",
+        "canonical": "oklch(80.0% 0.080 187)",
+        "tonalRamp": [
+          "#00110f",
+          "#002e2a",
+          "#004d48",
+          "#1f6f68",
+          "#46918a",
+          "#72b3ac",
+          "#9dd6cf",
+          "#c9faf4"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hold or rest numeral on the staff face, fitted by container units; tenths at 0.32em, 55% opacity."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Board state line with its state square."
+      },
+      "figure-lead": {
+        "displayName": "Figure Lead",
+        "purpose": "Rest / Last rest figure on the desktop board."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Session, Reps, Time held; 2rem in the phone figure strip."
+      },
+      "staff-mark": {
+        "displayName": "Staff Mark",
+        "purpose": "Metre numerals beside each E-block, coloured like the block."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Primary action label."
+      },
+      "face-status": {
+        "displayName": "Face Status",
+        "purpose": "Uppercase status and unit lines around the numeral."
+      },
+      "table-figure": {
+        "displayName": "Table Figure",
+        "purpose": "Tide-table cells and heading."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Empty-table sentence and rare prose."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase figure labels, target label, table headers (0.75rem)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "staff-stand",
+        "value": "0 0 0 1px rgb(16 24 28 / 0.12), 0 18px 40px -18px rgb(16 24 28 / 0.45)",
+        "purpose": "The enamel gauge staff only."
+      },
+      {
+        "name": "engaged-outline",
+        "value": "inset 0 0 0 2px var(--enamel)",
+        "purpose": "Primary action while a hold is running."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 3px solid var(--red-light); outline-offset: 3px",
+        "purpose": "Every control; the gauge uses -6px offset."
+      },
+      {
+        "name": "sheet-scrim",
+        "value": "rgb(8 14 16 / 0.6)",
+        "purpose": "Bottom-sheet ::backdrop."
+      }
+    ],
+    "motion": [
+      {
+        "name": "tide-ease",
+        "value": "1.8s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Water level settling after state changes."
+      },
+      {
+        "name": "tide-hold",
+        "value": "0.15s linear",
+        "purpose": "Water level tracking a running hold."
+      },
+      {
+        "name": "swell",
+        "value": "7s linear infinite (3.5s while holding, paused at rest)",
+        "purpose": "Surface swell translating along the water."
+      },
+      {
+        "name": "sheet-in",
+        "value": "0.32s cubic-bezier(0.16, 1, 0.3, 1), from translate 0 40px, opacity 0.4",
+        "purpose": "Bottom sheet entry."
+      },
+      {
+        "name": "control",
+        "value": "0.2s ease-out",
+        "purpose": "Button background, border, and colour changes."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Disables the water transition and swell."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "760px",
+        "purpose": "At or below: single-viewport layout, figure strip, bottom sheet."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Board's main hold toggle, enamel fill with a hint line.",
+      "html": "<div class=\"ds-board\"><button class=\"ds-btn-primary\">Start hold<span class=\"ds-hint\">or tap the gauge · Space</span></button></div>",
+      "css": ":host{--ink:#10181c;--ink-raised:#172227;--rule:#2b3a40;--enamel:#e9ece6;--enamel-shade:#d3d8d1;--red:#c8322b;--red-light:#f06a5c;--muted:#9db2b0;--slack-light:#7fcfc6;--display:'Barlow Condensed','Arial Narrow',sans-serif;--text:'Barlow',system-ui,sans-serif;}.ds-board{background:var(--ink);padding:20px;}.ds-btn-primary{display:grid;gap:4px;width:100%;padding:16px 18px 14px;border:0;border-radius:3px;background:var(--enamel);color:var(--ink);font-family:var(--display);font-weight:700;font-size:1.9rem;line-height:1;cursor:pointer;transition:background-color .2s ease-out;}.ds-btn-primary:hover{background:#ffffff;}.ds-btn-primary:focus-visible{outline:3px solid var(--red-light);outline-offset:3px;}.ds-hint{font-family:var(--text);font-weight:500;font-size:.85rem;}"
+    },
+    {
+      "name": "Primary Action (engaged)",
+      "kind": "button",
+      "refersTo": "button-primary-engaged",
+      "description": "Primary action while a hold runs: inset enamel stroke, no fill.",
+      "html": "<div class=\"ds-board\"><button class=\"ds-btn-engaged\">End hold<span class=\"ds-hint\">or tap the gauge · Space</span></button></div>",
+      "css": ":host{--ink:#10181c;--ink-raised:#172227;--rule:#2b3a40;--enamel:#e9ece6;--enamel-shade:#d3d8d1;--red:#c8322b;--red-light:#f06a5c;--muted:#9db2b0;--slack-light:#7fcfc6;--display:'Barlow Condensed','Arial Narrow',sans-serif;--text:'Barlow',system-ui,sans-serif;}.ds-board{background:var(--ink);padding:20px;}.ds-btn-engaged{display:grid;gap:4px;width:100%;padding:16px 18px 14px;border:0;border-radius:3px;background:transparent;color:var(--enamel);box-shadow:inset 0 0 0 2px var(--enamel);font-family:var(--display);font-weight:700;font-size:1.9rem;line-height:1;cursor:pointer;transition:background-color .2s ease-out;}.ds-btn-engaged:hover{background:var(--ink-raised);}.ds-btn-engaged:focus-visible{outline:3px solid var(--red-light);outline-offset:3px;}.ds-hint{font-family:var(--text);font-weight:500;font-size:.85rem;}"
+    },
+    {
+      "name": "Secondary Pair",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Finish session and Clear; Clear shown armed.",
+      "html": "<div class=\"ds-board\"><div class=\"ds-pair\"><button class=\"ds-btn-sec\">Finish session</button><button class=\"ds-btn-sec is-armed\">Tap again to clear</button></div></div>",
+      "css": ":host{--ink:#10181c;--ink-raised:#172227;--rule:#2b3a40;--enamel:#e9ece6;--enamel-shade:#d3d8d1;--red:#c8322b;--red-light:#f06a5c;--muted:#9db2b0;--slack-light:#7fcfc6;--display:'Barlow Condensed','Arial Narrow',sans-serif;--text:'Barlow',system-ui,sans-serif;}.ds-board{background:var(--ink);padding:20px;color:var(--enamel);}.ds-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;}.ds-btn-sec{min-height:46px;padding:0 12px;border:1px solid var(--rule);border-radius:3px;background:transparent;color:var(--enamel);font-family:var(--text);font-weight:600;font-size:.95rem;cursor:pointer;transition:border-color .2s ease-out,color .2s ease-out;}.ds-btn-sec:hover{border-color:var(--muted);}.ds-btn-sec:focus-visible{outline:3px solid var(--red-light);outline-offset:3px;}.ds-btn-sec.is-armed{border-color:var(--red-light);color:var(--red-light);}"
+    },
+    {
+      "name": "Target Stepper",
+      "kind": "input",
+      "refersTo": "stepper-button",
+      "description": "Labelled target hold stepper, 5 s steps.",
+      "html": "<div class=\"ds-board\"><div class=\"ds-target\"><span>Target hold</span><div class=\"ds-stepper\"><button aria-label=\"Shorter\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12h14\"/></svg></button><output>20 s</output><button aria-label=\"Longer\"><svg viewBox=\"0 0 24 24\"><path d=\"M5 12h14M12 5v14\"/></svg></button></div></div></div>",
+      "css": ":host{--ink:#10181c;--ink-raised:#172227;--rule:#2b3a40;--enamel:#e9ece6;--enamel-shade:#d3d8d1;--red:#c8322b;--red-light:#f06a5c;--muted:#9db2b0;--slack-light:#7fcfc6;--display:'Barlow Condensed','Arial Narrow',sans-serif;--text:'Barlow',system-ui,sans-serif;}.ds-board{background:var(--ink);padding:20px;color:var(--enamel);}.ds-target{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px solid var(--rule);}.ds-target>span{font-family:var(--text);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}.ds-stepper{display:flex;align-items:center;gap:6px;}.ds-stepper button{display:grid;place-items:center;width:46px;min-height:46px;padding:0;border:1px solid var(--rule);border-radius:3px;background:transparent;color:var(--enamel);cursor:pointer;transition:border-color .2s ease-out;}.ds-stepper button:hover{border-color:var(--muted);}.ds-stepper button:focus-visible{outline:3px solid var(--red-light);outline-offset:3px;}.ds-stepper svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:square;}.ds-stepper output{min-width:4.2ch;font-family:var(--display);font-weight:600;font-size:1.6rem;text-align:center;font-variant-numeric:tabular-nums;}"
+    },
+    {
+      "name": "Labelled Figures",
+      "kind": "card",
+      "refersTo": "figure",
+      "description": "Board figures: lead rest figure over Session / Reps / Time held, each labelled.",
+      "html": "<div class=\"ds-board\"><dl class=\"ds-figs\"><div class=\"ds-fig ds-lead\"><dt>Last rest</dt><dd>2.6<small> s</small></dd></div><div class=\"ds-fig\"><dt>Session</dt><dd>0:58</dd></div><div class=\"ds-fig\"><dt>Reps</dt><dd>3</dd></div><div class=\"ds-fig\"><dt>Time held</dt><dd>0:52</dd></div></dl></div>",
+      "css": ":host{--ink:#10181c;--ink-raised:#172227;--rule:#2b3a40;--enamel:#e9ece6;--enamel-shade:#d3d8d1;--red:#c8322b;--red-light:#f06a5c;--muted:#9db2b0;--slack-light:#7fcfc6;--display:'Barlow Condensed','Arial Narrow',sans-serif;--text:'Barlow',system-ui,sans-serif;}.ds-board{background:var(--ink);padding:20px;color:var(--enamel);}.ds-figs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 20px;margin:0;}.ds-fig{padding-top:10px;border-top:1px solid var(--rule);}.ds-fig dt{font-family:var(--text);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}.ds-fig dd{margin:2px 0 18px;font-family:var(--display);font-weight:600;font-size:2.2rem;line-height:1.05;font-variant-numeric:tabular-nums;}.ds-lead{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;}.ds-lead dd{font-size:4rem;line-height:.95;color:var(--muted);}.ds-lead small{font-size:.4em;font-weight:600;}"
+    },
+    {
+      "name": "Tide Table",
+      "kind": "custom",
+      "refersTo": "tide-strip",
+      "description": "Almanac rep log with stepped hold strips; current row raised.",
+      "html": "<div class=\"ds-board\"><h2 class=\"ds-th2\">Tide table</h2><table class=\"ds-table\"><thead><tr><th>Rep</th><th class=\"w\">Hold</th><th></th><th class=\"n\">Rest</th></tr></thead><tbody><tr class=\"cur\"><td>3</td><td class=\"w\"><span class=\"ds-strip short\" style=\"width:62%\"></span></td><td class=\"n\">13 s</td><td class=\"n r\">–</td></tr><tr><td>2</td><td class=\"w\"><span class=\"ds-strip short\" style=\"width:86%\"></span></td><td class=\"n\">18 s</td><td class=\"n r\">2.6 s</td></tr><tr><td>1</td><td class=\"w\"><span class=\"ds-strip\" style=\"width:100%\"></span></td><td class=\"n\">21 s</td><td class=\"n r\">3.2 s</td></tr></tbody></table></div>",
+      "css": ":host{--ink:#10181c;--ink-raised:#172227;--rule:#2b3a40;--enamel:#e9ece6;--enamel-shade:#d3d8d1;--red:#c8322b;--red-light:#f06a5c;--muted:#9db2b0;--slack-light:#7fcfc6;--display:'Barlow Condensed','Arial Narrow',sans-serif;--text:'Barlow',system-ui,sans-serif;}.ds-board{background:var(--ink);padding:20px;color:var(--enamel);}.ds-th2{margin:0 0 8px;font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:.08em;text-transform:uppercase;}.ds-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;}.ds-table th{padding:6px 8px;font-family:var(--text);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-align:left;color:var(--muted);border-bottom:1px solid var(--rule);}.ds-table td{padding:9px 8px;border-bottom:1px solid var(--rule);font-family:var(--display);font-weight:600;font-size:1.15rem;white-space:nowrap;}.ds-table th:first-child,.ds-table td:first-child{padding-left:0;width:3ch;}.ds-table .w{width:100%;}.ds-table .n{text-align:right;}.ds-table .r{color:var(--muted);}.ds-table tr.cur td{background:var(--ink-raised);}.ds-strip{display:block;height:10px;min-width:3px;background:var(--enamel-shade);}.ds-strip.short{background:#5f7275;}"
+    },
+    {
+      "name": "Gauge Staff",
+      "kind": "custom",
+      "refersTo": "target-flag",
+      "description": "Signature enamel staff with alternating ink/red E-marks, target flag, and waterline-split numeral.",
+      "html": "<div class=\"ds-field\"><div class=\"ds-water\"></div><div class=\"ds-staff\"><div class=\"ds-eb\" style=\"bottom:10%;height:26%\"><span class=\"ds-e\"></span><span class=\"ds-en\">5</span></div><div class=\"ds-eb red\" style=\"bottom:36%;height:26%\"><span class=\"ds-e\"></span><span class=\"ds-en\">10</span></div><div class=\"ds-eb\" style=\"bottom:62%;height:26%\"><span class=\"ds-e\"></span><span class=\"ds-en\">15</span></div><div class=\"ds-tl\" style=\"bottom:78%\"><span>Target 12 sec</span></div><div class=\"ds-sub\"></div><div class=\"ds-face dry\"><b>7</b></div><div class=\"ds-face wet\"><b>7</b></div></div></div>",
+      "css": ":host{--ink:#10181c;--ink-raised:#172227;--rule:#2b3a40;--enamel:#e9ece6;--enamel-shade:#d3d8d1;--red:#c8322b;--red-light:#f06a5c;--muted:#9db2b0;--slack-light:#7fcfc6;--display:'Barlow Condensed','Arial Narrow',sans-serif;--text:'Barlow',system-ui,sans-serif;}.ds-field{--water:45%;--e-w:34px;position:relative;height:320px;overflow:hidden;background:#c3cdc9;}.ds-water{position:absolute;inset:auto 0 0;height:var(--water);background:linear-gradient(to bottom,#1f6a6e,#0f3b40 5rem,#0c3337);}.ds-staff{position:absolute;inset:0 auto;left:50%;translate:-50% 0;width:60%;background:var(--enamel);box-shadow:0 0 0 1px rgb(16 24 28 / .12),0 18px 40px -18px rgb(16 24 28 / .45);}.ds-eb{position:absolute;left:0;width:100%;--c:var(--ink);}.ds-eb.red{--c:var(--red);}.ds-e{position:absolute;inset:0 auto 0 0;width:var(--e-w);background:linear-gradient(to top,var(--c) 0 20%,transparent 20% 40%,var(--c) 40% 60%,transparent 60% 80%,var(--c) 80% 100%);}.ds-e::before{content:'';position:absolute;inset:0 auto 0 0;width:34%;background:var(--c);}.ds-en{position:absolute;top:0;left:calc(var(--e-w) + 6px);font-family:var(--display);font-weight:700;font-size:1.6rem;line-height:.8;color:var(--c);}.ds-tl{position:absolute;left:calc(var(--e-w) + 3rem);right:0;z-index:3;border-top:3px solid var(--red);}.ds-tl span{position:absolute;right:8px;bottom:6px;padding:3px 8px 2px;background:var(--red);color:var(--enamel);font-family:var(--display);font-weight:600;font-size:.95rem;letter-spacing:.03em;white-space:nowrap;}.ds-sub{position:absolute;inset:auto 0 0;height:var(--water);background:rgb(15 59 64 / .9);border-top:2px solid #7fb5b3;}.ds-face{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding-left:calc(var(--e-w) + 2.8rem);font-family:var(--display);font-weight:600;font-size:9rem;line-height:.9;font-variant-numeric:tabular-nums;}.ds-face.dry{color:var(--ink);clip-path:inset(0 0 var(--water) 0);}.ds-face.wet{color:var(--enamel);clip-path:inset(calc(100% - var(--water)) 0 0 0);}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Harbour Tide Board",
+    "overview": "Tide reads a stretch the way a harbour master reads the water. The hold is a flood tide rising up a painted enamel gauge staff; the rest is slack water, the level holding while the colour turns teal. The screen is two fixed regions that never move between states: a gauge field (pale air above, harbour water rising from below, the staff standing in it) and a dark ink board carrying labelled figures, the target control, and an almanac tide table. State changes by fill, level, and colour, never by rearranging.\n\nThe material is painted metal and printed almanac: flat enamel, black and red E-graduations, tabular condensed numerals, hairline rules between figures. It is built to be read from a mat one to two metres away, often in pain, so the numeral is enormous, every figure is labelled, and nothing flashes, celebrates, or alarms. The only movement is the water: a slow ease as the level settles and a gentle swell along its surface.\n\nOn phones (760px and below) the app is exactly one viewport with no page scroll: the gauge fills the screen, a figure strip sits beneath it, and everything else lives in a native bottom sheet.",
+    "keyCharacteristics": [
+      "A vertical enamel gauge staff with alternating ink and red E-marks is the signature object.",
+      "The hold numeral is split by the waterline: ink above, enamel below.",
+      "Rest is slack teal; red is a marking colour, not a state colour.",
+      "Every figure wears an uppercase label; every changing number is tabular Barlow Condensed.",
+      "Fixed regions; flat surfaces; 3px corners at most."
+    ],
+    "rules": [
+      {
+        "name": "The Marking Red Rule",
+        "body": "E-Mark Red paints the staff's alternate E-blocks, the target line, and its flag; Signal Red Light is limited to focus rings and the armed Clear confirmation. Red never marks a timer state.",
+        "section": "colors"
+      },
+      {
+        "name": "The Slack Water Rule",
+        "body": "Rest is shown in slack teal, with the swell paused and the water level held where the hold left it. Rest is never red and never ink-on-enamel.",
+        "section": "colors"
+      },
+      {
+        "name": "The Labelled Figure Rule",
+        "body": "Every figure wears a label: an uppercase Barlow label in Sea Mist above or beside a Barlow Condensed value. A bare number is not allowed on the board.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Numeral Rule",
+        "body": "Every number that changes while you watch sets in Barlow Condensed with tabular figures, so digits never shift width.",
+        "section": "typography"
+      },
+      {
+        "name": "The Fixed Regions Rule",
+        "body": "Regions never move or resize between idle, hold, rest, and ended. States change fill, level, and colour only.",
+        "section": "layout"
+      },
+      {
+        "name": "The One Viewport Rule",
+        "body": "On phones the timer is one screen with no page scroll; anything that does not fit goes into the bottom sheet, never below the fold.",
+        "section": "layout"
+      },
+      {
+        "name": "The Painted Board Rule",
+        "body": "Board controls, figures, table, and sheet carry no drop shadows. The staff is the one object with depth.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the gauge field and board in the same place in every state; change fill, water level, and colour only.",
+      "Do label every figure with an uppercase Barlow label (0.8rem, 600, 0.08em) in Sea Mist.",
+      "Do set every changing number in Barlow Condensed with tabular figures.",
+      "Do show rest in slack teal (#1c6668 dry, #7fcfc6 wet and on the board) with the swell paused.",
+      "Do keep E-Mark Red (#c8322b) to the staff's E-marks, the target line, and its flag, and Signal Red Light (#f06a5c) to focus rings and the armed Clear.",
+      "Do keep phones at one viewport with no page scroll, and put secondary material in the native bottom sheet.",
+      "Do ease the water level slowly (1.8s, cubic-bezier(0.16, 1, 0.3, 1)) and switch water and swell motion off under reduced motion."
+    ],
+    "donts": [
+      "Don't use red for the hold, the rest, or any other timer state; the target flag is the only red on the staff that isn't an E-mark.",
+      "Don't replace the staff with a ring, dial, or progress bar; the tide gauge is the timer.",
+      "Don't add drop shadows to board controls, figures, table, or sheet; only the staff stands in depth.",
+      "Don't round corners past 3px, or round the staff, strips, or flag at all.",
+      "Don't add streaks, celebrations, badges, or alarm-style colour; the target cue is a soft chime and a short vibration.",
+      "Don't push the tide table or controls below the fold on phones."
+    ]
+  }
+}

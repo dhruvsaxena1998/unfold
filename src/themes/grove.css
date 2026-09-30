@@ -1,0 +1,230 @@
+/* Grove: a garden bed. Every rep plants a sapling; the tree grows through the session */
+
+:root[data-theme='grove'] {
+  --bg: #15201a;
+  --raised: #1d2a22;
+  --rule: #2f4034;
+  --fg: #eef3e6;
+  --muted: #a8b9a4;
+  --accent: #b9d98f;
+  --accent-hover: #cbe6a5;
+  --on-accent: #172612;
+  --rest: #9fcbe0;
+  --focus: #f3b86b;
+  --select: #5f9a52;
+  --strip: #9cc77a;
+  --strip-short: #4d5f4f;
+  --dim-fg: #5d6d5f;
+  --dim-rule: #1d2a22;
+  --scrim: rgb(8 14 10 / 0.62);
+  --display: 'Bitter', Georgia, serif;
+  --text: 'Bitter', Georgia, serif;
+  --display-tune: 0.92;
+}
+
+:root[data-theme='grove'] .primary,
+:root[data-theme='grove'] .more,
+:root[data-theme='grove'] .row,
+:root[data-theme='grove'] .row-edit,
+:root[data-theme='grove'] .secondary button,
+:root[data-theme='grove'] .controls button,
+:root[data-theme='grove'] .stepper button,
+:root[data-theme='grove'] .sounds button,
+:root[data-theme='grove'] .swatch svg {
+  border-radius: 8px;
+}
+
+:root[data-theme='grove'] .state,
+:root[data-theme='grove'] .primary,
+:root[data-theme='grove'] .tapbar strong {
+  font-weight: 700;
+}
+
+:root[data-theme='grove'] .fig dd,
+:root[data-theme='grove'] td {
+  font-weight: 500;
+}
+
+:root[data-theme='grove'] .strip {
+  border-radius: 0 5px 5px 0;
+}
+
+.grove {
+  /* Two soft far hills behind the bed give the sky some depth */
+  background:
+    radial-gradient(110% 38% at 14% 100%, #cddfbf 0 58%, transparent 58.5%),
+    radial-gradient(120% 46% at 88% 100%, #d6e5c9 0 58%, transparent 58.5%),
+    linear-gradient(to bottom, #f3f6ea, #dfead4 72%);
+  transition: filter 2s ease-out;
+}
+
+/* Rest: soft overcast, the garden stills */
+.grove.is-rest {
+  filter: saturate(0.8) brightness(0.97);
+}
+
+.grove-face {
+  position: absolute;
+  inset: 0 0 auto;
+  height: calc(100cqh - min(100cqw, 70cqh) - 20px);
+  min-height: 34%;
+  container-type: size;
+  color: #1f3a26;
+  pointer-events: none;
+}
+
+.grove.is-rest .grove-face {
+  color: #2f5f78;
+}
+
+.grove .numeral {
+  font-weight: 600;
+  font-size: min(60cqh, calc(80cqw / (var(--chars) * 0.58)));
+  letter-spacing: -0.03em;
+}
+
+.grove .face-status {
+  font-weight: 700;
+  font-size: clamp(0.85rem, 8cqh, 1.5rem);
+  letter-spacing: 0.08em;
+}
+
+.grove .face-unit {
+  font-size: clamp(0.85rem, 6.5cqh, 1.25rem);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.grove-goal {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  margin: 0;
+  color: #3d6b35;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.garden {
+  position: absolute;
+  left: 50%;
+  bottom: 44px;
+  translate: -50% 0;
+  width: min(100cqw, 70cqh);
+  aspect-ratio: 1;
+  overflow: visible;
+}
+
+.bed {
+  fill: #6d4f38;
+}
+
+.grass {
+  fill: none;
+  stroke: #7fae62;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.trunk {
+  fill: #6b4a32;
+}
+
+.branch {
+  fill: none;
+  stroke: #6b4a32;
+  stroke-linecap: round;
+}
+
+.canopy {
+  transform-box: view-box;
+  transform-origin: 150px 248px;
+  animation: sway 9s ease-in-out infinite;
+}
+
+.grove.is-rest .canopy,
+.grove.is-paused .canopy {
+  animation-play-state: paused;
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    rotate: -0.8deg;
+  }
+  50% {
+    rotate: 0.8deg;
+  }
+}
+
+.leaf.tone-0 {
+  fill: #5f9a52;
+}
+
+.leaf.tone-1 {
+  fill: #78b163;
+}
+
+.leaf.tone-2 {
+  fill: #467f42;
+}
+
+/* Leaves, buds and blossoms pop in with a small overshoot */
+.pop {
+  scale: 0;
+  transition: scale 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pop.is-on {
+  scale: 1;
+}
+
+.blossom circle {
+  fill: #f4b6c2;
+}
+
+.blossom .blossom-eye,
+.bud-eye {
+  fill: #f7d77a;
+}
+
+.plot {
+  fill: #54392a;
+}
+
+.sapling.is-todo .plot {
+  fill: #5d4230;
+  stroke: #8a6a4e;
+  stroke-width: 0.6;
+  stroke-dasharray: 1 1.2;
+}
+
+.stem {
+  fill: none;
+  stroke: #4f8a45;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+.bud {
+  fill: #f29fb0;
+}
+
+.sapling.is-live .stem {
+  stroke: #62a453;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canopy {
+    animation: none;
+  }
+
+  .pop,
+  .grove {
+    transition: none;
+  }
+}
