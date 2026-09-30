@@ -1047,18 +1047,18 @@ tr.is-current td {
   margin-bottom: -12px;
 }
 
-.brand img {
-  width: 44px;
-  height: 44px;
-  margin: -4px -2px 0 -6px;
+.brand svg {
+  width: 30px;
+  height: 32px;
+  flex: none;
 }
 
 .brand h1 {
   margin: 0;
-  font-family: 'Nunito', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, sans-serif;
   font-weight: 800;
   font-size: 2.2rem;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
   line-height: 1;
 }
 

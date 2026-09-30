@@ -2,12 +2,14 @@ import { Face, TapBar } from '../Face.jsx'
 
 // The sun's climb is the whole session, from first light to high morning.
 // Each rep makes it blaze: its halo swells with the hold and fades at rest.
+// Zenith and horizon from night to high morning: slate, not violet, warming
+// through a dull rose-brown glow to apricot and a pale washed blue.
 const SKY = [
-  [0, '#0f1030', '#27234d'],
-  [0.3, '#1f2558', '#8a4f7d'],
-  [0.55, '#3a4a8c', '#e0806e'],
-  [0.8, '#5a7fc4', '#f4b27a'],
-  [1, '#7fa6dc', '#ffd59a'],
+  [0, '#0d131e', '#1c2533'],
+  [0.3, '#16223a', '#5e4447'],
+  [0.55, '#2a4262', '#c9744d'],
+  [0.8, '#5a82a8', '#eeb271'],
+  [1, '#8fb3d0', '#f5d9a8'],
 ]
 const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16))
 const mix = (a, b, t) => {
@@ -23,6 +25,17 @@ function sky(s) {
   return [mix(z0, z1, t), mix(h0, h1, t)]
 }
 
+// The sky is printed in hard bands, tighter towards the horizon, like a woodblock.
+const BANDS = [0, 0.14, 0.3, 0.46, 0.62, 0.8, 1]
+const EDGES = [40, 49, 57, 65, 74, 85]
+function bands(zenith, horizon) {
+  const stops = BANDS.map((t, i) => {
+    const c = `color-mix(in oklab, ${zenith} ${Math.round(t * 100)}%, ${horizon})`
+    return `${c} ${i ? EDGES[i - 1] : 0}% ${EDGES[i] ?? 100}%`
+  })
+  return `linear-gradient(to top, ${stops.join(', ')})`
+}
+
 const sunAt = (s) => 30 + 56 * s
 
 export default function Dawn({ g }) {
@@ -33,7 +46,7 @@ export default function Dawn({ g }) {
   return (
     <div
       className={`field dawn is-${g.phase} mode-${g.mode}${g.paused ? ' is-paused' : ''}`}
-      style={{ '--zenith': zenith, '--horizon': horizon, '--sun': `${sunAt(s)}%`, '--stars': Math.max(0, 1 - s * 2.4), '--flare': flare }}
+      style={{ '--zenith': zenith, '--horizon': horizon, '--bands': bands(zenith, horizon), '--sun': `${sunAt(s)}%`, '--stars': Math.max(0, 1 - s * 2.4), '--flare': flare }}
     >
       <div className="sky" aria-hidden="true">
         <div className="stars" />
@@ -51,6 +64,7 @@ export default function Dawn({ g }) {
         <path className="hill-mid" d="M0 70C70 44 130 62 200 50S320 36 400 58V160H0Z" />
         <path className="hill-near" d="M0 100C80 80 150 96 230 86S350 78 400 92V160H0Z" />
       </svg>
+      <div className="dusk" aria-hidden="true" />
       <div className="dawn-face">
         <Face face={g.face} />
       </div>

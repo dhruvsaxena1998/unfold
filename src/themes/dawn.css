@@ -1,22 +1,23 @@
-/* Dawn: the sun climbs over the hills as you hold; rest is a still dusk */
+/* Dawn: the sun climbs over the hills as you hold; rest is the blue hour.
+   Printed like a woodblock: the sky in hard bands, flat hills, a flat sun. */
 
 :root[data-theme='dawn'] {
-  --bg: #1a1630;
-  --raised: #221d3c;
-  --rule: #372f58;
-  --fg: #fbeee0;
-  --muted: #b4a9cb;
-  --accent: #f6b26b;
-  --accent-hover: #ffc585;
-  --on-accent: #2a1a14;
-  --rest: #d4b2f0;
-  --focus: #8fd6ff;
-  --select: #c7667a;
-  --strip: #f6b26b;
-  --strip-short: #5c5480;
-  --dim-fg: #625a86;
-  --dim-rule: #262043;
-  --scrim: rgb(10 8 24 / 0.6);
+  --bg: #121824;
+  --raised: #1a2231;
+  --rule: #2d384a;
+  --fg: #f6ecdf;
+  --muted: #a7b0bf;
+  --accent: #f2b35e;
+  --accent-hover: #f8c67e;
+  --on-accent: #2a1a0c;
+  --rest: #9cc3e6;
+  --focus: #ffe2b0;
+  --select: #c8643c;
+  --strip: #f2b35e;
+  --strip-short: #4a5670;
+  --dim-fg: #5d6880;
+  --dim-rule: #1d2533;
+  --scrim: rgb(8 11 18 / 0.62);
   --display: 'Bricolage Grotesque', system-ui, sans-serif;
   --text: 'Bricolage Grotesque', system-ui, sans-serif;
   --display-tune: 0.92;
@@ -39,11 +40,6 @@
 :root[data-theme='dawn'] .strip {
   height: 8px;
   border-radius: 0 4px 4px 0;
-  background: linear-gradient(to right, #c7667a, #f6b26b);
-}
-
-:root[data-theme='dawn'] .strip.is-short {
-  background: var(--strip-short);
 }
 
 .dawn {
@@ -53,30 +49,23 @@
 .sky {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--horizon) 38%, var(--zenith));
-  transition: filter 2.4s ease-out;
-}
-
-/* Rest: the light holds but cools to dusk */
-.dawn.is-rest .sky,
-.dawn.is-rest .hills {
-  filter: saturate(0.55) brightness(0.82) hue-rotate(-14deg);
+  background: var(--bands);
 }
 
 .stars {
   position: absolute;
   inset: 0 0 45%;
   opacity: var(--stars);
-  background-image: radial-gradient(1.4px 1.4px at 12% 18%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 28% 32%, #fff 50%, transparent 51%),
-    radial-gradient(1.6px 1.6px at 44% 12%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 58% 26%, #fff 50%, transparent 51%),
-    radial-gradient(1.3px 1.3px at 71% 9%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 83% 30%, #fff 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 91% 15%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 20% 48%, #fff 50%, transparent 51%),
-    radial-gradient(1.2px 1.2px at 65% 44%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 36% 58%, #fff 50%, transparent 51%);
+  background-image: radial-gradient(1.4px 1.4px at 12% 18%, #fff4e0 50%, transparent 51%),
+    radial-gradient(1px 1px at 28% 32%, #fff4e0 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 44% 12%, #fff4e0 50%, transparent 51%),
+    radial-gradient(1px 1px at 58% 26%, #fff4e0 50%, transparent 51%),
+    radial-gradient(1.3px 1.3px at 71% 9%, #fff4e0 50%, transparent 51%),
+    radial-gradient(1px 1px at 83% 30%, #fff4e0 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 91% 15%, #fff4e0 50%, transparent 51%),
+    radial-gradient(1px 1px at 20% 48%, #fff4e0 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 65% 44%, #fff4e0 50%, transparent 51%),
+    radial-gradient(1px 1px at 36% 58%, #fff4e0 50%, transparent 51%);
   transition: opacity 1.6s ease-out;
 }
 
@@ -105,16 +94,21 @@
 }
 
 .disc {
-  background: radial-gradient(circle at 50% 45%, #fff6e0, #ffd99c 55%, #ffbf73);
-  box-shadow: 0 0 60px 24px rgb(255 196 120 / 0.3);
-  transition: background 1.6s ease-out;
+  background: #ffe3ad;
+  transition: background-color 1.6s ease-out;
 }
 
-/* Each hold makes the sun blaze: its halo swells with the rep */
+/* Each hold makes the sun blaze: flat rings of light widen with the rep */
 .halo {
-  background: radial-gradient(circle, rgb(255 214 150 / 0.55), rgb(255 180 120 / 0.18) 45%, transparent 70%);
-  scale: calc(1.2 + var(--flare) * 1.9);
-  opacity: calc(0.35 + var(--flare) * 0.55);
+  background: radial-gradient(
+    circle,
+    rgb(255 227 173 / 0.34) 0 44%,
+    rgb(255 214 150 / 0.2) 44% 58%,
+    rgb(255 200 130 / 0.1) 58% 70%,
+    transparent 70%
+  );
+  scale: calc(1.3 + var(--flare) * 1.8);
+  opacity: calc(0.4 + var(--flare) * 0.6);
 }
 
 .sun-goal {
@@ -123,11 +117,7 @@
 }
 
 .sun-goal.is-reached {
-  border: 2px solid #ffe2b0;
-}
-
-.dawn.is-rest .disc {
-  background: radial-gradient(circle at 50% 45%, #ffe9e0, #f4b3a0 55%, #d9848a);
+  border: 2px solid #ffe3ad;
 }
 
 .sun-label {
@@ -141,74 +131,7 @@
   font-size: clamp(0.8rem, 2.2cqh, 1rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  text-shadow: 0 1px 8px rgb(20 16 40 / 0.5);
-}
-
-.hills {
-  filter: saturate(0.55) brightness(0.82) hue-rotate(-14deg);
-}
-
-.stars {
-  position: absolute;
-  inset: 0 0 45%;
-  opacity: var(--stars);
-  background-image: radial-gradient(1.4px 1.4px at 12% 18%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 28% 32%, #fff 50%, transparent 51%),
-    radial-gradient(1.6px 1.6px at 44% 12%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 58% 26%, #fff 50%, transparent 51%),
-    radial-gradient(1.3px 1.3px at 71% 9%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 83% 30%, #fff 50%, transparent 51%),
-    radial-gradient(1.5px 1.5px at 91% 15%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 20% 48%, #fff 50%, transparent 51%),
-    radial-gradient(1.2px 1.2px at 65% 44%, #fff 50%, transparent 51%),
-    radial-gradient(1px 1px at 36% 58%, #fff 50%, transparent 51%);
-  transition: opacity 1.6s ease-out;
-}
-
-.sun {
-  position: absolute;
-  left: 50%;
-  bottom: var(--sun);
-  width: clamp(84px, 20cqmin, 200px);
-  aspect-ratio: 1;
-  translate: -50% 50%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 50% 45%, #fff6e0, #ffd99c 55%, #ffbf73);
-  box-shadow: 0 0 60px 24px rgb(255 196 120 / 0.35), 0 0 180px 80px rgb(255 170 110 / 0.2);
-  transition: bottom 2.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.dawn.is-hold .sun {
-  transition: none;
-}
-
-.dawn.is-rest .sun {
-  background: radial-gradient(circle at 50% 45%, #ffe9e0, #f4b3a0 55%, #d9848a);
-  box-shadow: 0 0 60px 24px rgb(230 150 160 / 0.28), 0 0 160px 70px rgb(200 120 160 / 0.16);
-}
-
-.altitude {
-  position: absolute;
-  left: 6%;
-  right: 6%;
-  border-top: 1px dashed rgb(255 240 220 / 0.55);
-}
-
-.altitude span {
-  position: absolute;
-  right: 0;
-  bottom: 6px;
-  color: #fff3e3;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: clamp(0.8rem, 2.2cqh, 1rem);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-shadow: 0 1px 8px rgb(20 16 40 / 0.5);
-}
-
-.altitude.is-reached {
-  border-top: 2px solid #ffd99c;
+  text-shadow: 0 1px 8px rgb(12 16 26 / 0.5);
 }
 
 .hills {
@@ -216,19 +139,38 @@
   inset: auto 0 0;
   width: 100%;
   height: 46%;
-  transition: filter 2.4s ease-out;
 }
 
+/* Atmospheric perspective: far hills take the blue of the sky, near ones the board's ink */
 .hill-far {
-  fill: color-mix(in oklab, var(--horizon) 38%, #2a2450);
+  fill: color-mix(in oklab, var(--zenith) 34%, #3a4f5e);
 }
 
 .hill-mid {
-  fill: color-mix(in oklab, var(--horizon) 16%, #1d1938);
+  fill: color-mix(in oklab, var(--zenith) 14%, #223040);
 }
 
 .hill-near {
-  fill: #141128;
+  fill: var(--bg);
+}
+
+/* Rest: the light holds where it is but turns to blue hour */
+.dusk {
+  position: absolute;
+  inset: 0;
+  background: #3d6a9c;
+  mix-blend-mode: color;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2.4s ease-out;
+}
+
+.dawn.is-rest .dusk {
+  opacity: 0.55;
+}
+
+.dawn.is-rest .disc {
+  background-color: #eef1f4;
 }
 
 .dawn-face {
@@ -238,6 +180,7 @@
   margin-bottom: 52px;
   container-type: size;
   color: var(--fg);
+  transition: color 1.4s ease-out;
   pointer-events: none;
 }
 
@@ -262,11 +205,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sky,
   .sun,
   .disc,
-  .hills,
-  .stars {
+  .dusk,
+  .stars,
+  .dawn-face {
     transition: none;
   }
 }

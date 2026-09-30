@@ -45,13 +45,6 @@ export default function Bloom({ g }) {
   return (
     <div className={`field bloom is-${g.phase}${g.paused ? ' is-paused' : ''}`}>
       <svg className="blob" viewBox="-100 -100 200 200" aria-hidden="true">
-        <defs>
-          <radialGradient id="blob-fill" cx="36%" cy="30%" r="80%">
-            <stop offset="0" className="b0" />
-            <stop offset="0.55" className="b1" />
-            <stop offset="1" className="b2" />
-          </radialGradient>
-        </defs>
         <circle r={SEED + GROWTH + SWELL + 4} className="full-bloom" />
         {g.goalMark && g.phase !== 'ended' && (
           <g className={`orbit${g.reached ? ' is-reached' : ''}`}>
@@ -60,7 +53,7 @@ export default function Bloom({ g }) {
           </g>
         )}
         {LAYERS.map((l, i) => (
-          <path key={i} ref={(el) => (paths.current[i] = el)} className={`blob-${i}`} fill="url(#blob-fill)" />
+          <path key={i} ref={(el) => (paths.current[i] = el)} className={`blob-${i}`} />
         ))}
       </svg>
       <div className="bloom-face" ref={face}>

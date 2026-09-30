@@ -40,8 +40,12 @@ export default function Home({ theme, look, routines, breath, setBreath, history
       <section className="board home-board" aria-label="Sessions">
         <div className="menu">
           <header className="brand">
-            <img src="/held-mark.svg" alt="" />
-            <h1>held</h1>
+            <svg viewBox="232 212 560 600" aria-hidden="true">
+              <rect x="292" y="640" width="440" height="150" rx="56" fill="currentColor" />
+              <rect x="292" y="468" width="440" height="150" rx="56" fill="currentColor" />
+              <rect x="292" y="252" width="440" height="150" rx="56" fill="#e04a2a" transform="rotate(-9 292 402)" />
+            </svg>
+            <h1>unfold</h1>
           </header>
           <section>
             <h2>Stretch</h2>

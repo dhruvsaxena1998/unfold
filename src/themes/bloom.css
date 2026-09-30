@@ -1,22 +1,23 @@
-/* Bloom: a soft living blob that swells with the hold and exhales at rest */
+/* Bloom: a cut-paper blob that swells with the hold and exhales at rest.
+   Three flat, opaque layers stepped in tone like overlapping petals; no gradients. */
 
 :root[data-theme='bloom'] {
-  --bg: #1c1424;
-  --raised: #251b2f;
-  --rule: #3a2d47;
-  --fg: #f6e9f0;
-  --muted: #b7a3bf;
-  --accent: #ffb48f;
-  --accent-hover: #ffc6a8;
-  --on-accent: #2a1320;
-  --rest: #c3b5ff;
-  --focus: #ffd27a;
-  --select: #c9487a;
-  --strip: #ffb48f;
-  --strip-short: #6e5a78;
-  --dim-fg: #6d5c77;
-  --dim-rule: #2b2136;
-  --scrim: rgb(12 7 16 / 0.6);
+  --bg: #171213;
+  --raised: #221b1c;
+  --rule: #3b3031;
+  --fg: #f5ece3;
+  --muted: #b3a39a;
+  --accent: #f2875a;
+  --accent-hover: #f7a17b;
+  --on-accent: #2a120a;
+  --rest: #a3c9b3;
+  --focus: #f3d27c;
+  --select: #b8432a;
+  --strip: #f2875a;
+  --strip-short: #5c4b48;
+  --dim-fg: #6f5f59;
+  --dim-rule: #271f20;
+  --scrim: rgb(10 7 7 / 0.62);
   --display: 'Nunito', system-ui, sans-serif;
   --text: 'Nunito', system-ui, sans-serif;
   --display-tune: 0.94;
@@ -45,23 +46,25 @@
 }
 
 .bloom {
-  --b0: #d9bfd6;
-  --b1: #a784a9;
-  --b2: #6d4f77;
-  --ink-on: #1c1424;
-  background: radial-gradient(circle at 50% 44%, #2e2039, #1c1424 72%);
+  --b0: #a8877c;
+  --b1: #6d5550;
+  --b2: #3a2c2b;
+  --ink-on: #1e1413;
+  background: var(--bg);
 }
 
 .bloom.is-hold {
-  --b0: #ffd9bd;
-  --b1: #f59a86;
-  --b2: #d45a7c;
+  --b0: #f2875a;
+  --b1: #b84a33;
+  --b2: #6e2a24;
+  --ink-on: #2a120a;
 }
 
 .bloom.is-rest {
-  --b0: #e6e0ff;
-  --b1: #ab9df2;
-  --b2: #6f5fc9;
+  --b0: #a3c9b3;
+  --b1: #5f8a77;
+  --b2: #2f4a40;
+  --ink-on: #10231b;
 }
 
 .blob {
@@ -74,28 +77,20 @@
   overflow: visible;
 }
 
-.blob stop {
-  transition: stop-color 1.4s ease-out;
-}
-
-.b0 {
-  stop-color: var(--b0);
-}
-
-.b1 {
-  stop-color: var(--b1);
-}
-
-.b2 {
-  stop-color: var(--b2);
+.blob path {
+  transition: fill 1.4s ease-out;
 }
 
 .blob-0 {
-  opacity: 0.16;
+  fill: var(--b2);
 }
 
 .blob-1 {
-  opacity: 0.32;
+  fill: var(--b1);
+}
+
+.blob-2 {
+  fill: var(--b0);
 }
 
 .full-bloom {
@@ -112,11 +107,10 @@
 
 .orbit circle {
   fill: none;
-  stroke: var(--b0);
+  stroke: var(--muted);
   stroke-width: 0.6;
   stroke-dasharray: 1.4 2.6;
   stroke-linecap: round;
-  opacity: 0.7;
   transition: stroke 0.8s ease-out;
 }
 
@@ -131,13 +125,13 @@
 }
 
 .orbit.is-reached circle {
-  stroke: #ffe2c9;
+  stroke: var(--accent);
   stroke-dasharray: none;
   stroke-width: 0.9;
 }
 
 .orbit.is-reached text {
-  fill: #ffe2c9;
+  fill: var(--accent);
 }
 
 .bloom-face {
@@ -149,6 +143,7 @@
   height: min(40cqw, calc(40cqh - 20px));
   container-type: size;
   color: var(--ink-on);
+  transition: color 1.4s ease-out;
   pointer-events: none;
 }
 
@@ -175,4 +170,11 @@
   line-height: 1.2;
   text-wrap: balance;
   opacity: 0.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob path,
+  .bloom-face {
+    transition: none;
+  }
 }
