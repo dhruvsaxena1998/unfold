@@ -127,7 +127,8 @@ export default function Vessel({ g }) {
               <clipPath id="inside">
                 <path d={INSIDE} />
               </clipPath>
-              <linearGradient id="water-fill" x1="0" y1="0" x2="0" y2="1">
+              {/* In user space, so the wave strip shades as one body with the water under it */}
+              <linearGradient id="water-fill" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="200">
                 <stop offset="0" className="w0" />
                 <stop offset="1" className="w1" />
               </linearGradient>

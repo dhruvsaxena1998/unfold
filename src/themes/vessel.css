@@ -347,9 +347,15 @@
   stroke-width: 0.8;
 }
 
+/* Each loop travels a whole number of wave periods, so it restarts without a
+   hitch: 50 units in the bottle; the cup's wave is scaled to 0.6, so 30 there */
 .wave {
-  translate: -2px 0;
+  --wave-run: -100px;
   animation: wave 4s linear infinite;
+}
+
+.cup .wave {
+  --wave-run: -60px;
 }
 
 .vessel.is-hold .wave {
@@ -362,8 +368,11 @@
 }
 
 @keyframes wave {
+  from {
+    translate: 0 0;
+  }
   to {
-    translate: -100px 0;
+    translate: var(--wave-run) 0;
   }
 }
 
