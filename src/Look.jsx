@@ -12,9 +12,10 @@ const GLYPHS = {
   ),
   bloom: (
     <>
-      <rect x="4" y="4" width="28" height="28" fill="#1c1424" />
-      <path d="M18 8c6 0 10 3.5 9.6 9.4-.4 6-4.6 10.2-10.2 9.8C11.5 26.8 8 22.6 8.6 17 9.2 11.4 12.6 8 18 8z" fill="#f59a86" />
-      <path d="M15 11.5c2 -1 4.6-.8 6 .6" stroke="#ffd8bf" strokeWidth="1.6" fill="none" strokeLinecap="round" />
+      <rect x="4" y="4" width="28" height="28" fill="#171213" />
+      <path d="M18 5.5c7.4 0 12.4 4.4 11.9 11.6-.5 7.4-5.7 12.5-12.6 12-6.9-.5-11.4-5.6-10.8-12.3C7.1 9.9 11.4 5.5 18 5.5z" fill="#6e2a24" />
+      <path d="M18 8.2c5.9 0 9.8 3.5 9.4 9.2-.4 5.8-4.5 9.9-10 9.5-5.4-.4-8.9-4.5-8.5-9.8C9.3 11.8 12.8 8.2 18 8.2z" fill="#b84a33" />
+      <path d="M18.4 10.6c4.4 0 7.2 2.7 6.9 6.9-.3 4.3-3.3 7.3-7.4 7-4-.3-6.6-3.4-6.2-7.3.4-3.9 2.9-6.6 6.7-6.6z" fill="#f2875a" />
     </>
   ),
   vessel: (
@@ -27,10 +28,13 @@ const GLYPHS = {
   ),
   dawn: (
     <>
-      <rect x="4" y="4" width="28" height="28" fill="#3a4a8c" />
-      <rect x="4" y="16" width="28" height="16" fill="#e0806e" />
-      <circle cx="18" cy="21" r="6" fill="#ffd9a0" />
-      <path d="M4 24c6-3 12-1 18-2s8-1 10 0v10H4z" fill="#15122a" />
+      <rect x="4" y="4" width="28" height="28" fill="#2a4262" />
+      <rect x="4" y="12" width="28" height="4" fill="#5b5a6a" />
+      <rect x="4" y="16" width="28" height="3" fill="#94665a" />
+      <rect x="4" y="19" width="28" height="13" fill="#c9744d" />
+      <circle cx="18" cy="20" r="5.5" fill="#ffe3ad" />
+      <path d="M4 22.5c6-2.5 12-1 18-1.8s7.5-.8 10 .3V32H4z" fill="#5a5a60" />
+      <path d="M4 26c7-2 13-.6 19-1.2s6.5-.6 9 .2V32H4z" fill="#121824" />
     </>
   ),
   grove: (
