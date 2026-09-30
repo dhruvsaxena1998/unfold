@@ -12,6 +12,18 @@ import AutoRun from './AutoRun.jsx'
 import Editor from './Editor.jsx'
 import HistoryView from './HistoryView.jsx'
 
+// Screen changes run as a view transition: the field holds its place while the
+// board slides on in the direction of travel (styles.css, "Screen transitions").
+let navs = 0
+function navigate(dir, update) {
+  if (!dir || !document.startViewTransition) return update()
+  const root = document.documentElement
+  const n = ++navs
+  root.dataset.nav = reducedMotion() ? 'fade' : dir
+  const t = document.startViewTransition(() => flushSync(update))
+  t.finished.finally(() => n === navs && delete root.dataset.nav)
+}
+
 export default function App() {
   const [view, setView] = useState({ name: 'home' })
   const [themeId, setThemeId] = usePref('theme', 'tide')
@@ -29,14 +41,16 @@ export default function App() {
   }, [theme])
 
   // Screens are history entries, so the phone's back gesture returns home.
-  const go = (next) => {
-    window.history.pushState({ view: next }, '')
-    setView(next)
-    window.scrollTo(0, 0)
-  }
+  const go = (next) =>
+    navigate('forward', () => {
+      window.history.pushState({ view: next }, '')
+      setView(next)
+      window.scrollTo(0, 0)
+    })
   const home = () => (view.name === 'home' ? null : window.history.back())
   useEffect(() => {
-    const onPop = (e) => setView(e.state?.view ?? { name: 'home' })
+    // A swipe-back the browser already animated needs no second transition.
+    const onPop = (e) => navigate(e.hasUAVisualTransition ? null : 'back', () => setView(e.state?.view ?? { name: 'home' }))
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
   }, [])

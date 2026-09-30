@@ -1,5 +1,7 @@
+import { useLayoutEffect, useRef } from 'react'
 import { Face, TapBar } from '../Face.jsx'
 import { mmss } from '../format.js'
+import { reducedMotion } from '../progress.js'
 
 // The bottle is the whole session: each hold fills the small glass beside it,
 // and when the hold ends the glass pours into the bottle.
@@ -20,6 +22,78 @@ const cupY = (lv) => CUP_FLOOR - (CUP_FLOOR - CUP_GOAL) * Math.min(lv, 1.18)
 const CUP = 'M6 6H54L49 84Q48.5 88 44.5 88H15.5Q11.5 88 11 84Z'
 const CUP_IN = 'M8.4 8H51.6L46.9 83.4Q46.5 86 44 86H16Q13.5 86 13.1 83.4Z'
 
+// The pour, as fractions of POUR_MS: the glass lifts to the bottle's mouth,
+// tips, empties while the stream runs, then sets back down. The cap, stream,
+// ripples and the bottle's rise are timed to the same beats in vessel.css.
+const POUR_MS = 2800
+const LIP = [6, 6] // the glass's pouring corner, in its own viewBox
+const MOUTH = [50, 7] // where that corner is held, just over the bottle's neck
+const REACH = 64 // how far the tipped glass rises above its lip, in glass units
+// Tilt keys the whole pour. Height and sideways travel run on separate curves,
+// so the glass arcs up and over the shoulder instead of cutting through it.
+const TILT = [
+  { offset: 0, rotate: '0deg', easing: 'cubic-bezier(0.45, 0, 0.2, 1)' },
+  { offset: 0.27, rotate: '-18deg', easing: 'cubic-bezier(0.5, 0, 0.3, 1)' },
+  { offset: 0.38, rotate: '-108deg', easing: 'linear' },
+  { offset: 0.7, rotate: '-116deg', easing: 'cubic-bezier(0.45, 0, 0.2, 1)' },
+  { offset: 1, rotate: '0deg' },
+]
+const RISE = ['cubic-bezier(0.1, 0.8, 0.2, 1)', 'cubic-bezier(0.5, 0, 0.3, 1)']
+const ACROSS = ['cubic-bezier(0.7, 0, 0.3, 1)', 'cubic-bezier(0.2, 0.6, 0.35, 1)']
+const travel = (value, [out, back]) => [
+  { offset: 0, easing: out, translate: '0 0' },
+  { offset: 0.27, translate: value },
+  { offset: 0.7, easing: back, translate: value },
+  { offset: 1, translate: '0 0' },
+]
+
+function pour(scene, glass, level, top) {
+  const box = glass.parentElement
+  scene.dataset.pour = ''
+  for (const el of [box, glass, level, level.firstChild]) el.getAnimations().forEach((a) => a.cancel())
+  const field = scene.closest('.field').getBoundingClientRect()
+  const cup = glass.getBoundingClientRect()
+  const bottle = scene.querySelector('.bottle svg').getBoundingClientRect()
+  const k = cup.width / 60
+  const lip = [cup.left + LIP[0] * k, cup.top + LIP[1] * k]
+  const mouth = [bottle.left + (MOUTH[0] / 100) * bottle.width, bottle.top + (MOUTH[1] / 190) * bottle.height]
+  // Shrink the glass in flight only as far as the headroom above the bottle needs.
+  const scale = Math.max(0.6, Math.min(1, (mouth[1] - field.top - 4) / (REACH * k)))
+  const opts = { duration: POUR_MS }
+  box.animate(travel(`${mouth[0] - lip[0]}px 0`, ACROSS), opts)
+  glass.animate(
+    travel(`0 ${mouth[1] - lip[1]}px`, RISE).map((f, i) => ({ ...f, scale: i === 0 || i === 3 ? '1' : String(scale) })),
+    opts,
+  )
+  glass.animate(TILT, opts)
+  // The water stays level while the glass turns, then runs out over the lip.
+  level.animate(TILT.map(({ offset, rotate, easing }) => ({ offset, easing, rotate: `${-parseFloat(rotate)}deg` })), opts)
+  level.firstChild.animate(
+    [
+      { offset: 0, translate: `0 ${top}px` },
+      { offset: 0.27, translate: `0 ${top}px`, easing: 'ease-in' },
+      { offset: 0.38, translate: '0 -24px' },
+      { offset: 0.52, translate: '0 -9px', easing: 'ease-in' },
+      { offset: 0.68, translate: '0 9px' },
+      { offset: 0.78, translate: `0 ${CUP_FLOOR + 2}px` },
+      { offset: 1, translate: `0 ${CUP_FLOOR + 2}px` },
+    ],
+    opts,
+  ).finished.then(() => delete scene.dataset.pour, () => {})
+}
+
+// Tapping into the next hold mid-pour sets the glass down from wherever it is.
+function settle(scene, glass, level) {
+  if (!('pour' in scene.dataset)) return
+  delete scene.dataset.pour
+  for (const el of [glass.parentElement, glass, level, level.firstChild]) {
+    const now = getComputedStyle(el)
+    const from = { translate: now.translate, rotate: now.rotate, scale: now.scale }
+    el.getAnimations().forEach((a) => a.cancel())
+    if (el !== level.firstChild) el.animate([from, { translate: '0 0', rotate: '0deg', scale: '1' }], { duration: 380, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' })
+  }
+}
+
 export default function Vessel({ g }) {
   const top = bottleY(g.banked)
   const wetPct = ((H - top) / H) * 100
@@ -27,10 +101,26 @@ export default function Vessel({ g }) {
   // Breathing fills and empties the glass with each breath; timed reps pour it out at rest.
   const cup = g.phase === 'idle' || g.phase === 'ended' ? CUP_FLOOR + 2 : g.mode === 'breath' || holding ? cupY(g.level) : CUP_FLOOR + 2
   const quarter = g.sessionGoal / 4
+  const scene = useRef(null)
+  const glass = useRef(null)
+  const level = useRef(null)
+  const was = useRef(g.phase)
+  const lastCup = useRef(cup)
+
+  useLayoutEffect(() => {
+    const from = was.current
+    was.current = g.phase
+    const refs = [scene.current, glass.current, level.current]
+    if (from === 'hold' && (g.phase === 'rest' || g.phase === 'ended') && g.mode !== 'breath' && !reducedMotion()) pour(...refs, lastCup.current)
+    else if (g.phase === 'hold') settle(...refs)
+  }, [g.phase, g.mode])
+  useLayoutEffect(() => {
+    if (g.phase === 'hold') lastCup.current = cup
+  })
 
   return (
     <div className={`field vessel is-${g.phase} mode-${g.mode}${g.paused ? ' is-paused' : ''}`}>
-      <div className="vessel-scene">
+      <div className="vessel-scene" ref={scene}>
         <div className="bottle" style={{ '--wet': `${wetPct}%` }}>
           <svg viewBox="0 0 100 190" aria-hidden="true">
             <defs>
@@ -43,10 +133,18 @@ export default function Vessel({ g }) {
               </linearGradient>
             </defs>
             <path d={GLASS} className="glass" />
+            <path d={`M${MOUTH[0]} ${MOUTH[1]}V${FLOOR}`} pathLength="1" className="stream" />
             <g clipPath="url(#inside)">
               <g className="bottle-water" style={{ '--top': `${top}px` }}>
                 <rect x="0" y="0" width="100" height="200" fill="url(#water-fill)" />
                 <path d={WAVE} className="wave" fill="url(#water-fill)" />
+                <g className="splash" transform={`translate(${MOUTH[0]} 1)`}>
+                  <ellipse rx="7" ry="1.5" />
+                  <ellipse rx="7" ry="1.5" />
+                  {[[-2.4, 14], [1.8, 22], [-0.6, 30], [2.6, 12]].map(([x, y], i) => (
+                    <circle key={i} cx={x} cy={y} r={i % 2 ? 0.8 : 1.2} />
+                  ))}
+                </g>
               </g>
             </g>
             <g className="marks">
@@ -58,8 +156,10 @@ export default function Vessel({ g }) {
               ))}
             </g>
             <path d="M82 76V156" className="glint" />
-            <rect x="35.5" y="3" width="29" height="13" rx="2.5" className="cap" />
-            <path d="M40 6V13M45 6V13M50 6V13M55 6V13M60 6V13" className="cap-ridge" />
+            <g className="lid">
+              <rect x="35.5" y="3" width="29" height="13" rx="2.5" className="cap" />
+              <path d="M40 6V13M45 6V13M50 6V13M55 6V13M60 6V13" className="cap-ridge" />
+            </g>
           </svg>
           <div className="face-dry">
             <Face face={g.face} />
@@ -70,7 +170,7 @@ export default function Vessel({ g }) {
         </div>
 
         <div className="cup">
-          <svg viewBox="0 0 60 90" aria-hidden="true">
+          <svg viewBox="0 0 60 90" aria-hidden="true" ref={glass}>
             <defs>
               <clipPath id="cup-in">
                 <path d={CUP_IN} />
@@ -78,9 +178,11 @@ export default function Vessel({ g }) {
             </defs>
             <path d={CUP} className="glass" />
             <g clipPath="url(#cup-in)">
-              <g className="cup-water" style={{ '--top': `${cup}px` }}>
-                <rect x="0" y="0" width="60" height="100" fill="url(#water-fill)" />
-                <path d={WAVE} className="wave" fill="url(#water-fill)" transform="scale(0.6 1)" />
+              <g className="cup-level" ref={level}>
+                <g className="cup-water" style={{ '--top': `${cup}px` }}>
+                  <rect x="-100" y="0" width="260" height="200" fill="url(#water-fill)" />
+                  <path d={WAVE} className="wave" fill="url(#water-fill)" transform="scale(0.6 1)" />
+                </g>
               </g>
               <g className="bubbles" style={{ '--rise': Math.max(0, CUP_FLOOR - cup - 4) }}>
                 {BUBBLES.slice(0, 5).map(([x, delay], i) => (

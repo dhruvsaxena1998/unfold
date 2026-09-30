@@ -488,7 +488,7 @@ tr.is-current td {
 .sheet-body {
   display: grid;
   gap: 22px;
-  padding: 18px 18px max(22px, env(safe-area-inset-bottom));
+  padding: 18px 18px calc(22px + env(safe-area-inset-bottom));
 }
 
 .sheet-head {
@@ -726,10 +726,126 @@ tr.is-current td {
   padding-top: 4px;
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
+/* Screen transitions. The field is the same place on every session screen, so it
+   holds still and resizes while its two pictures cross over; the board slides on
+   in the direction of travel. A theme change is one long cross-fade. */
+
+.gauge {
+  view-transition-name: field;
+}
+
+.board {
+  view-transition-name: board;
+}
+
+.page {
+  view-transition-name: page;
+}
+
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
   animation-duration: 0.55s;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+::view-transition-group(field),
+::view-transition-group(board) {
+  overflow: clip;
+}
+
+/* The field changes shape between screens. Side by side it only widens a
+   little, so its pictures fill it; stacked on a phone it grows much taller, so
+   they keep their size and hang from the top, the gap falling behind the board. */
+::view-transition-old(field),
+::view-transition-new(field) {
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 760px) {
+  ::view-transition-old(field),
+  ::view-transition-new(field) {
+    object-fit: none;
+    object-position: 50% 0;
+  }
+}
+
+/* Board pictures keep their own size instead of stretching to the moving box */
+::view-transition-old(board),
+::view-transition-new(board) {
+  width: auto;
+  height: auto;
+  inset: 0 0 auto auto;
+}
+
+:root[data-nav='forward'] {
+  --nav-dir: 1;
+}
+
+:root[data-nav='back'] {
+  --nav-dir: -1;
+}
+
+:root[data-nav='fade'] {
+  --nav-dir: 0;
+}
+
+:root[data-nav]::view-transition-group(*) {
+  animation-duration: 0.46s;
+}
+
+:root[data-nav]::view-transition-old(board),
+:root[data-nav]::view-transition-old(page),
+:root[data-nav]::view-transition-old(root) {
+  animation: nav-out 0.2s cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+:root[data-nav]::view-transition-new(board),
+:root[data-nav]::view-transition-new(page),
+:root[data-nav]::view-transition-new(root) {
+  animation: nav-in 0.46s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+}
+
+/* The old picture mostly leaves before the new one arrives, so the two never
+   read as a double exposure */
+:root[data-nav]::view-transition-old(field) {
+  animation: nav-fade-out 0.22s ease-in both;
+}
+
+:root[data-nav]::view-transition-new(field) {
+  animation: nav-fade-in 0.36s ease-out 0.06s both;
+}
+
+/* Reduced motion: nothing travels, the screens only cross-fade */
+:root[data-nav='fade']::view-transition-group(*) {
+  animation: none;
+}
+
+@keyframes nav-out {
+  to {
+    opacity: 0;
+    translate: calc(var(--nav-dir) * -28px) 0;
+  }
+}
+
+@keyframes nav-in {
+  from {
+    opacity: 0;
+    translate: calc(var(--nav-dir) * 48px) 0;
+  }
+}
+
+@keyframes nav-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes nav-fade-in {
+  from {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 760px) {
@@ -755,7 +871,7 @@ tr.is-current td {
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 12px;
-    padding: 12px 14px max(12px, env(safe-area-inset-bottom));
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
   }
 
   .state,
@@ -1213,7 +1329,7 @@ tr.is-current td {
   max-width: 640px;
   min-height: 100svh;
   margin: 0 auto;
-  padding: clamp(16px, 4vw, 40px) clamp(16px, 4vw, 32px) max(40px, env(safe-area-inset-bottom));
+  padding: clamp(16px, 4vw, 40px) clamp(16px, 4vw, 32px) calc(40px + env(safe-area-inset-bottom));
 }
 
 .page-top {
@@ -1410,6 +1526,7 @@ input {
 
 @media (max-width: 760px) {
   .home {
+    grid-template-columns: 1fr;
     grid-template-rows: 44svh auto;
     height: auto;
     min-height: 100svh;
@@ -1418,7 +1535,7 @@ input {
   .home .home-board {
     display: block;
     overflow: visible;
-    padding: 20px 16px max(28px, env(safe-area-inset-bottom));
+    padding: 20px 16px calc(28px + env(safe-area-inset-bottom));
   }
 
   .home .tapbar {
