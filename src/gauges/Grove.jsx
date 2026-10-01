@@ -172,7 +172,7 @@ export default function Grove({ g }) {
   let flowers = 0
 
   return (
-    <div className={`field grove is-${g.phase}${g.paused ? ' is-paused' : ''}${blooming ? ' is-blooming' : ''}`}>
+    <div className={`field grove is-${g.phase} mode-${g.mode}${g.paused ? ' is-paused' : ''}${blooming ? ' is-blooming' : ''}`}>
       <div className="grove-face">
         <Face face={g.face} />
         {g.goalMark && g.phase !== 'ended' && <p className="grove-goal">{g.goalLabel}</p>}

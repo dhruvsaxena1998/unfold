@@ -1266,12 +1266,6 @@ tr.is-current td {
   padding: 4px 0;
 }
 
-.pattern-edit {
-  padding: 12px 14px;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-}
-
 /* History */
 
 .history h3 {

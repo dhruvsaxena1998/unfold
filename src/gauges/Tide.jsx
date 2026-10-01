@@ -8,7 +8,8 @@ const SPAN = 80
 const y = (lv) => BASE + SPAN * Math.min(lv / 1.2, 1.1)
 
 export default function Tide({ g }) {
-  const live = g.phase === 'hold' || g.phase === 'rest'
+  // The lead-in floods the staff to its foot, so the first rep starts from there.
+  const live = g.phase === 'hold' || g.phase === 'rest' || g.kind === 'lead'
   const water = live ? y(g.level) : 2.5
   const s = Math.min(g.session, 1)
   const swells = 1 + (s > 0.33) + (s > 0.66)
@@ -16,7 +17,7 @@ export default function Tide({ g }) {
 
   return (
     <div
-      className={`field tide is-${g.phase}${g.paused ? ' is-paused' : ''}`}
+      className={`field tide is-${g.phase} mode-${g.mode}${g.paused ? ' is-paused' : ''}`}
       style={{ '--water': `${water}%`, '--sea-level': s, '--swell-h': `${10 + 26 * s}px` }}
     >
       <div className="water" aria-hidden="true">

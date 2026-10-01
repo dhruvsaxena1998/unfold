@@ -22,9 +22,10 @@
   transition: --water 1.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* The level is set every frame while holding; a transition here would restart
-   each frame and hold the water back until the hold ends. */
-.tide.is-hold {
+/* The level is set every frame while holding, and through the whole breath; a
+   transition here would restart each frame and hold the water back. */
+.tide.is-hold,
+.tide.mode-breath.is-rest {
   transition: none;
 }
 
@@ -64,11 +65,13 @@
   animation-duration: 4.1s;
 }
 
-.tide.is-hold .swell {
+/* Breathing flips between hold and rest every few seconds; changing the swell's
+   speed or pausing it each time would make it lurch, so it keeps one pace */
+.tide.is-hold:not(.mode-breath) .swell {
   animation-duration: 3.5s;
 }
 
-.tide.is-rest .swell,
+.tide.is-rest:not(.mode-breath) .swell,
 .tide.is-paused .swell {
   animation-play-state: paused;
 }
