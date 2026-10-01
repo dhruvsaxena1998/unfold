@@ -151,7 +151,7 @@
   animation: sway 9s ease-in-out infinite;
 }
 
-.grove.is-rest .canopy,
+.grove.is-rest:not(.mode-breath) .canopy,
 .grove.is-paused .canopy {
   animation-play-state: paused;
 }
@@ -184,8 +184,10 @@
   --tone: #467f42;
 }
 
-/* While a hold runs the leaves stir, each on its own slow beat */
-.grove.is-hold:not(.is-paused) .leaf-f {
+/* While a hold runs the leaves stir, each on its own slow beat; breathing stirs
+   them through the whole breath rather than stopping them at every exhale */
+.grove.is-hold:not(.is-paused) .leaf-f,
+.grove.mode-breath.is-rest:not(.is-paused) .leaf-f {
   animation: flutter calc(2.6s + mod(var(--f, 3), 5) * 0.45s) ease-in-out calc(mod(var(--f, 0), 7) * -0.6s) infinite alternate;
 }
 
@@ -245,7 +247,7 @@
   animation: drift 11s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.grove.is-rest .falling .petal,
+.grove.is-rest:not(.mode-breath) .falling .petal,
 .grove.is-paused .falling .petal {
   animation-play-state: paused;
 }
@@ -320,7 +322,8 @@
 @media (prefers-reduced-motion: reduce) {
   .canopy,
   .planted,
-  .grove.is-hold:not(.is-paused) .leaf-f {
+  .grove.is-hold:not(.is-paused) .leaf-f,
+  .grove.mode-breath.is-rest:not(.is-paused) .leaf-f {
     animation: none;
   }
 

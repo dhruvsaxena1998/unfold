@@ -37,8 +37,8 @@ A count-up timer that inverts a stopwatch's priorities:
 Grow from a stretch timer into a calm rehab + breathing app. Three modes share the five themes:
 
 - **Stretch**: today's manual tap-to-hold / tap-to-rest timer, unchanged.
-- **Routine**: named, saved sequences of exercises; each step has its own hold, rest and reps and runs automatically. Controls while running: pause/resume (tap), skip / back (rep or exercise), +10 s on the current hold, and an optional "wait for tap between exercises" per routine (else it continues after the rest). Ships 2–3 generic editable starters (e.g. "Hold 10 / rest 5 × 10", "Long holds 30 / 15 × 5"); no medical claims.
-- **Breathing**: presets Box 4-4-4-4, 4-7-8, and slow even breathing 5.5 / 5.5, plus custom in / hold / out / hold and a session length. Gauges map to the breath (blob swells on inhale, bottle fills and empties, sun rises and sets).
+- **Routine**: named, saved sequences of exercises; each step has its own hold, rest and reps and runs automatically. Controls while running: pause/resume (tap), skip / back (rep or exercise), +10 s on the current hold, and an optional "wait for tap between exercises" per routine (else it continues after the rest). Starting set (2026-10-01): Free stretch plus three editable routines: Steady holds (10 × 10 s hold, 5 s rest), Box breathing and 4-7-8. Users add their own, kept on the device; no medical claims.
+- **Breathing** routines (2026-10-01: no longer a separate section): a routine can be stretches or breathing. Breathing routines have their own in / hold / out / hold pattern and length; starters Box 4-4-4-4 and 4-7-8, editable and deletable like any routine. Gauges map to the breath (blob swells on inhale, bottle fills and empties, sun rises and sets).
 
 Guidance: soft countdown ticks in the last 3 s before every phase change, on top of each theme's cues.
 

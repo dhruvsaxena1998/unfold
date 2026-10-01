@@ -155,17 +155,19 @@ export default function AutoRun({ kind, routine, pattern, minutes, theme, look, 
     </dl>
   )
 
-  const controls = !isBreath && running && (
+  // Routine step controls hold their place before and after the run, so
+  // starting it changes no layout; they only work while it runs.
+  const controls = !isBreath && (
     <div className="controls" role="group" aria-label="Step controls">
-      <button type="button" onClick={() => (feedback('tap'), run.back())}>
+      <button type="button" onClick={() => (feedback('tap'), run.back())} disabled={!running}>
         <Icon name="prev" />
         Back
       </button>
-      <button type="button" onClick={() => (feedback('tap'), run.extend(10))} disabled={seg.kind !== 'hold'}>
+      <button type="button" onClick={() => (feedback('tap'), run.extend(10))} disabled={!running || seg.kind !== 'hold'}>
         <Icon name="plus" />
         10 s
       </button>
-      <button type="button" onClick={() => (feedback('tap'), run.skip())}>
+      <button type="button" onClick={() => (feedback('tap'), run.skip())} disabled={!running}>
         <Icon name="skip" />
         Skip
       </button>
@@ -246,7 +248,7 @@ export default function AutoRun({ kind, routine, pattern, minutes, theme, look, 
           </p>
           {figures}
           {compact ? (
-            <div className={`quick${running && !isBreath ? ' quick-wide' : ''}`}>
+            <div className={`quick${isBreath ? '' : ' quick-wide'}`}>
               {r.status === 'done' ? (
                 <button type="button" className="more is-new" onClick={again}>
                   <Icon name="again" />

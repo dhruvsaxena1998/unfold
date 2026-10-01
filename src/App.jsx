@@ -4,7 +4,7 @@ import { ambience, cue, unlockAudio } from './sound.js'
 import { buzz } from './haptics.js'
 import { reducedMotion } from './progress.js'
 import { themeById } from './themes.js'
-import { BREATH_PATTERNS, STARTER_ROUTINES, uid, usePref } from './store.js'
+import { STARTER_ROUTINES, isBreath, uid, usePref } from './store.js'
 import { Look } from './Look.jsx'
 import Home from './Home.jsx'
 import StretchRun from './StretchRun.jsx'
@@ -29,7 +29,6 @@ export default function App() {
   const [themeId, setThemeId] = usePref('theme', 'tide')
   const [sound, setSound] = usePref('sound', { cues: true, ambience: false })
   const [routines, setRoutines] = usePref('routines', STARTER_ROUTINES)
-  const [breath, setBreath] = usePref('breath', { minutes: 5, custom: { in: 4, holdIn: 0, out: 6, holdOut: 0 } })
   const [history, setHistory] = usePref('history', [])
   const [goal] = usePref('goal', 180)
   const theme = themeById(themeId)
@@ -92,11 +91,10 @@ export default function App() {
       return <StretchRun key="stretch" {...shared} />
     case 'routine': {
       const routine = routines.find((r) => r.id === view.id)
-      return routine ? <AutoRun key={routine.id} kind="routine" routine={routine} {...shared} /> : null
-    }
-    case 'breath': {
-      const pattern = view.id === 'custom' ? { ...breath.custom, id: 'custom', name: 'Your pattern' } : BREATH_PATTERNS.find((p) => p.id === view.id)
-      return <AutoRun key={pattern.id} kind="breath" pattern={pattern} minutes={breath.minutes} {...shared} />
+      if (!routine) return null
+      if (isBreath(routine))
+        return <AutoRun key={routine.id} kind="breath" pattern={{ ...routine.pattern, name: routine.name }} minutes={routine.minutes} {...shared} />
+      return <AutoRun key={routine.id} kind="routine" routine={routine} {...shared} />
     }
     case 'edit':
       return (
@@ -116,6 +114,6 @@ export default function App() {
     case 'history':
       return <HistoryView history={history} onClear={() => setHistory([])} onHome={home} />
     default:
-      return <Home theme={theme} look={look} routines={routines} breath={breath} setBreath={setBreath} history={history} goal={goal} go={go} />
+      return <Home theme={theme} look={look} routines={routines} history={history} goal={goal} go={go} />
   }
 }

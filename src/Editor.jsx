@@ -1,13 +1,98 @@
 import { useState } from 'react'
 import { mmss } from './format.js'
-import { routineSec, uid } from './store.js'
+import { isBreath, patternText, routineSec, uid } from './store.js'
 import { ArmedButton, Field, Icon, Stepper } from './ui.jsx'
 
 const blank = () => ({ id: uid(), name: 'New routine', waitBetween: false, transition: 15, exercises: [newExercise(1)] })
 const newExercise = (n) => ({ id: uid(), name: `Exercise ${n}`, hold: 10, rest: 5, reps: 8 })
+const blankBreath = (id) => ({ id, name: 'New breathing', kind: 'breath', minutes: 5, pattern: { in: 4, holdIn: 0, out: 6, holdOut: 0 } })
+
+const DEFAULT_NAMES = new Set(['New routine', 'New breathing'])
+
+const BREATH_STEPS = [
+  ['in', 'Breathe in', 1],
+  ['holdIn', 'Hold', 0],
+  ['out', 'Breathe out', 1],
+  ['holdOut', 'Hold after', 0],
+]
 
 export default function Editor({ routine, onSave, onDelete, onHome }) {
   const [r, setR] = useState(() => (routine ? structuredClone(routine) : blank()))
+  const breath = isBreath(r)
+  // A new routine starts as stretches; it can switch to breathing before it is
+  // saved, keeping a name already typed.
+  const setKind = (b) => {
+    if (b === breath) return
+    const next = b ? blankBreath(r.id) : { ...blank(), id: r.id }
+    setR(DEFAULT_NAMES.has(r.name) ? next : { ...next, name: r.name })
+  }
+  const setStep = (k) => (v) => setR({ ...r, pattern: { ...r.pattern, [k]: v } })
+
+  return (
+    <main className="page editor">
+      <header className="page-top">
+        <button type="button" className="back" onClick={onHome}>
+          <Icon name="back" />
+          Cancel
+        </button>
+        <h1>{routine ? 'Edit routine' : 'New routine'}</h1>
+        <button type="button" className="save" onClick={() => onSave({ ...r, name: r.name.trim() || 'Routine' })} disabled={!breath && !r.exercises.length}>
+          Save
+        </button>
+      </header>
+
+      {!routine && (
+        <div className="choice" role="radiogroup" aria-label="Kind of routine">
+          <button type="button" role="radio" aria-checked={!breath} onClick={() => setKind(false)}>
+            <strong>Stretches</strong>
+            <span>holds and rests, rep by rep</span>
+          </button>
+          <button type="button" role="radio" aria-checked={breath} onClick={() => setKind(true)}>
+            <strong>Breathing</strong>
+            <span>a paced breath, for a set time</span>
+          </button>
+        </div>
+      )}
+
+      <label className="name-field">
+        <span>Name</span>
+        <input value={r.name} onChange={(e) => setR({ ...r, name: e.target.value })} maxLength={40} />
+      </label>
+      {breath ? <BreathFields r={r} setR={setR} setStep={setStep} /> : <StretchFields r={r} setR={setR} />}
+
+      {routine && (
+        <div className="page-foot">
+          <ArmedButton className="plain" onConfirm={() => onDelete(routine.id)} armedLabel="Tap again to delete this routine">
+            Delete routine
+          </ArmedButton>
+        </div>
+      )}
+    </main>
+  )
+}
+
+function BreathFields({ r, setR, setStep }) {
+  const cycle = r.pattern.in + r.pattern.holdIn + r.pattern.out + r.pattern.holdOut
+  return (
+    <>
+      <p className="page-lede">
+        {patternText(r.pattern)} seconds · about {Math.max(1, Math.round((r.minutes * 60) / cycle))} breaths
+      </p>
+      <div className="settings">
+        <Field label="Length" id="len-label">
+          <Stepper id="len-label" label="length" value={r.minutes} onChange={(v) => setR({ ...r, minutes: v })} min={1} max={30} format={(v) => `${v} min`} />
+        </Field>
+        {BREATH_STEPS.map(([k, label, min]) => (
+          <Field key={k} label={label} id={`p-${k}`}>
+            <Stepper id={`p-${k}`} label={label} value={r.pattern[k]} onChange={setStep(k)} step={0.5} min={min} max={20} format={(v) => (v ? `${v} s` : 'Off')} />
+          </Field>
+        ))}
+      </div>
+    </>
+  )
+}
+
+function StretchFields({ r, setR }) {
   const setEx = (i, patch) => setR({ ...r, exercises: r.exercises.map((e, k) => (k === i ? { ...e, ...patch } : e)) })
   const move = (i, d) => {
     const ex = [...r.exercises]
@@ -18,22 +103,7 @@ export default function Editor({ routine, onSave, onDelete, onHome }) {
   const holds = r.exercises.reduce((s, e) => s + e.reps, 0)
 
   return (
-    <main className="page editor">
-      <header className="page-top">
-        <button type="button" className="back" onClick={onHome}>
-          <Icon name="back" />
-          Cancel
-        </button>
-        <h1>{routine ? 'Edit routine' : 'New routine'}</h1>
-        <button type="button" className="save" onClick={() => onSave({ ...r, name: r.name.trim() || 'Routine' })} disabled={!r.exercises.length}>
-          Save
-        </button>
-      </header>
-
-      <label className="name-field">
-        <span>Name</span>
-        <input value={r.name} onChange={(e) => setR({ ...r, name: e.target.value })} maxLength={40} />
-      </label>
+    <>
       <p className="page-lede">
         {r.exercises.length} {r.exercises.length === 1 ? 'exercise' : 'exercises'} · {holds} holds · about {mmss(routineSec(r) * 1000)}
       </p>
@@ -99,14 +169,6 @@ export default function Editor({ routine, onSave, onDelete, onHome }) {
           )}
         </section>
       )}
-
-      {routine && (
-        <div className="page-foot">
-          <ArmedButton className="plain" onConfirm={() => onDelete(routine.id)} armedLabel="Tap again to delete this routine">
-            Delete routine
-          </ArmedButton>
-        </div>
-      )}
-    </main>
+    </>
   )
 }

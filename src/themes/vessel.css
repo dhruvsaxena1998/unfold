@@ -122,7 +122,7 @@
 }
 
 /* Rest without the pour (reduced motion) drains the glass where it stands */
-.vessel.is-rest .cup-water {
+.vessel.is-rest:not(.mode-breath) .cup-water {
   transition: translate 1.1s ease-in 0.3s;
 }
 
@@ -358,11 +358,12 @@
   --wave-run: -60px;
 }
 
-.vessel.is-hold .wave {
+/* Breathing keeps one pace (see tide.css) */
+.vessel.is-hold:not(.mode-breath) .wave {
   animation-duration: 2.2s;
 }
 
-.vessel.is-rest .wave,
+.vessel.is-rest:not(.mode-breath) .wave,
 .vessel.is-paused .wave {
   animation-play-state: paused;
 }
