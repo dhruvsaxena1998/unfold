@@ -155,22 +155,29 @@ export default function AutoRun({ kind, routine, pattern, minutes, theme, look, 
     </dl>
   )
 
-  // Routine step controls hold their place before and after the run, so
-  // starting it changes no layout; they only work while it runs.
-  const controls = !isBreath && (
-    <div className="controls" role="group" aria-label="Step controls">
-      <button type="button" onClick={() => (feedback('tap'), run.back())} disabled={!running}>
+  // Routine step controls: Back, +10 s (holds only), Skip. They only work while it runs.
+  const steps = (className) => (
+    <>
+      <button type="button" className={className} onClick={() => (feedback('tap'), run.back())} disabled={!running}>
         <Icon name="prev" />
         Back
       </button>
-      <button type="button" onClick={() => (feedback('tap'), run.extend(10))} disabled={!running || seg.kind !== 'hold'}>
+      <button type="button" className={className} onClick={() => (feedback('tap'), run.extend(10))} disabled={!running || seg.kind !== 'hold'}>
         <Icon name="plus" />
         10 s
       </button>
-      <button type="button" onClick={() => (feedback('tap'), run.skip())} disabled={!running}>
+      <button type="button" className={className} onClick={() => (feedback('tap'), run.skip())} disabled={!running}>
         <Icon name="skip" />
         Skip
       </button>
+    </>
+  )
+
+  // On wide screens they hold their place before and after the run, so
+  // starting it changes no layout.
+  const controls = !isBreath && (
+    <div className="controls" role="group" aria-label="Step controls">
+      {steps()}
     </div>
   )
 
@@ -255,20 +262,7 @@ export default function AutoRun({ kind, routine, pattern, minutes, theme, look, 
                   Again
                 </button>
               ) : running && !isBreath ? (
-                <>
-                  <button type="button" className="more" onClick={() => (feedback('tap'), run.back())}>
-                    <Icon name="prev" />
-                    Back
-                  </button>
-                  <button type="button" className="more" onClick={() => (feedback('tap'), run.extend(10))} disabled={seg.kind !== 'hold'}>
-                    <Icon name="plus" />
-                    10 s
-                  </button>
-                  <button type="button" className="more" onClick={() => (feedback('tap'), run.skip())}>
-                    <Icon name="skip" />
-                    Skip
-                  </button>
-                </>
+                steps('more')
               ) : (
                 <button type="button" className="more" onClick={main}>
                   <Icon name={paused || r.status === 'ready' ? 'play' : 'pause'} />

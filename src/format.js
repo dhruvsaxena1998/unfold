@@ -1,9 +1,5 @@
 // ms -> "7", "59", "1:05"
-export function clock(ms) {
-  const s = Math.floor(ms / 1000)
-  if (s < 60) return String(s)
-  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
-}
+export const clock = (ms) => (ms < 60000 ? String(Math.floor(ms / 1000)) : mmss(ms))
 
 export const tenth = (ms) => Math.floor((ms % 1000) / 100)
 

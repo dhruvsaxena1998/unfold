@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 // Everything kept on the device lives here, under one prefix.
 const KEY = (k) => `stretch.${k}`
 
-export function load(key, initial) {
+function load(key, initial) {
   try {
     return JSON.parse(localStorage.getItem(KEY(key))) ?? initial
   } catch {

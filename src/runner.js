@@ -76,18 +76,14 @@ export class Runner {
   }
 
   advance(at) {
-    const events = []
     this.log[this.i] = at - this.segStart
-    events.push({ type: 'leave', seg: this.seg })
     this.i++
     this.segStart = at
-    if (this.i >= this.segs.length) {
-      this.status = 'done'
-      this.i = this.segs.length - 1
-      this.endedAt = at
-      events.push({ type: 'done' })
-    } else events.push({ type: 'enter', seg: this.seg })
-    return events
+    if (this.i < this.segs.length) return [{ type: 'enter', seg: this.seg }]
+    this.status = 'done'
+    this.i = this.segs.length - 1
+    this.endedAt = at
+    return [{ type: 'done' }]
   }
 
   tick(now) {
