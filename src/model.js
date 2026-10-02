@@ -1,6 +1,7 @@
 import { stretchFace } from './Face.jsx'
 import { mmss } from './format.js'
 import { marksFor, scaleFor } from './progress.js'
+import { routineSec } from './store.js'
 
 // Every mode reduces to one gauge model the themes draw:
 // phase     idle | hold | rest | ended  (colour and motion state)
@@ -10,11 +11,12 @@ import { marksFor, scaleFor } from './progress.js'
 // reps      [{ level, state: done | live | todo }] one per rep, for the grove
 // face, tap the reading and the tap-bar text
 
-const SPACE = 'Tap anywhere or press Space'
+export const SPACE = 'Tap anywhere or press Space'
+export const STRETCH_ACTION = { idle: 'Start hold', hold: 'End hold', rest: 'Start next hold', ended: 'Session finished' }
 
 export function stretchModel(s, target, goalSec) {
   const holdSec = s.hold / 1000
-  const span = target || scaleFor(holdSec, 0) / 1.2
+  const span = target || scaleFor(holdSec) / 1.2
   const live = s.phase === 'hold' || s.phase === 'rest'
   const goal = goalSec * 1000
   const finished = s.rows.reduce((sum, r, i) => (i === s.rows.length - 1 && s.phase === 'hold' ? sum : sum + r.hold), 0)
@@ -37,7 +39,7 @@ export function stretchModel(s, target, goalSec) {
     face: stretchFace({ phase: s.phase, hold: s.hold, rest: s.rest, repNo: s.rows.length }),
     tap: {
       hint: s.phase === 'ended' ? '' : SPACE,
-      action: { idle: 'Start hold', hold: 'End hold', rest: 'Start next hold', ended: 'Session finished' }[s.phase],
+      action: STRETCH_ACTION[s.phase],
     },
   }
 }
@@ -77,7 +79,7 @@ export function routineModel(run, routine, now) {
   const phase = { ready: 'idle', lead: 'idle', hold: 'hold', rest: 'rest', gap: 'rest', wait: 'rest', done: 'ended' }[kind]
   const next = routine.exercises[seg.ex]
   const face = {
-    ready: { status: routine.name, whole: mmss(routineSecOf(routine) * 1000), frac: null, sub: 'minutes · tap to begin' },
+    ready: { status: routine.name, whole: mmss(routineSec(routine) * 1000), frac: null, sub: 'minutes · tap to begin' },
     lead: { status: 'Get ready', whole: secs(left), frac: null, sub: ex.name },
     hold: { status: `Rep ${seg.rep + 1} of ${ex.reps}`, whole: secs(left), frac: null, sub: 'seconds left' },
     rest: { status: 'Rest', whole: secs(left), frac: null, sub: `Next: rep ${seg.rep + 2} of ${ex.reps}` },
@@ -107,16 +109,12 @@ export function routineModel(run, routine, now) {
     })),
     face,
     tap: {
-      hint: kind === 'done' ? '' : paused ? 'Paused' : 'Tap anywhere or press Space',
+      hint: kind === 'done' ? '' : paused ? 'Paused' : SPACE,
       action:
         kind === 'ready' ? 'Start routine' : kind === 'done' ? 'Routine finished' : kind === 'wait' ? 'Continue' : paused ? 'Resume' : 'Pause',
     },
   }
 }
-
-export const routineSecOf = (r) =>
-  r.exercises.reduce((s, e) => s + (e.hold + e.rest) * e.reps - e.rest, 0) +
-  Math.max(0, r.exercises.length - 1) * (r.waitBetween ? 0 : r.transition)
 
 const ease = (p) => 0.5 - 0.5 * Math.cos(Math.PI * Math.min(1, Math.max(0, p)))
 
@@ -167,7 +165,7 @@ export function breathModel(run, pattern, now) {
     reps,
     face,
     tap: {
-      hint: kind === 'done' ? '' : paused ? 'Paused' : 'Tap anywhere or press Space',
+      hint: kind === 'done' ? '' : paused ? 'Paused' : SPACE,
       action: kind === 'ready' ? 'Begin' : kind === 'done' ? 'Session finished' : paused ? 'Resume' : 'Pause',
     },
   }

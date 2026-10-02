@@ -12,14 +12,9 @@ const PATTERNS = {
 }
 
 let haptics
-let enabled = true
-
-export function setHaptics(on) {
-  enabled = on
-}
 
 export function buzz(kind) {
-  if (!enabled || typeof window === 'undefined') return
+  if (typeof window === 'undefined') return
   haptics ??= new WebHaptics()
   haptics.trigger(PATTERNS[kind] ?? kind).catch(() => {})
 }

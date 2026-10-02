@@ -45,11 +45,7 @@ function tone(freq, { at = 0, gain = 0.1, attack = 0.01, decay = 0.6, type = 'si
   if (to) osc.frequency.exponentialRampToValueAtTime(to, t + attack + decay * 0.6)
   const g = env(t, gain * scale, attack, decay)
   let node = osc.connect(g)
-  if (lowpass) {
-    const f = ctx.createBiquadFilter()
-    f.frequency.value = lowpass
-    node = node.connect(f)
-  }
+  if (lowpass) node = node.connect(filter('lowpass', lowpass, 1))
   node.connect(dest)
   osc.start(t)
   osc.stop(t + attack + decay + 0.05)

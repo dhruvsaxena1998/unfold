@@ -1,24 +1,11 @@
 // Shared hold -> picture mappings for the gauges.
 
-// Seconds on a graduated scale (Tide staff, Vessel bottle). With a target, the
-// target sits near the top; without one, the scale shows a minute and extends
-// in 30 s steps for long holds.
-export function scaleFor(holdSec, target) {
-  if (target) return Math.max(15, Math.ceil((target * 1.2) / 5) * 5)
-  return Math.max(60, Math.ceil((holdSec + 10) / 30) * 30)
-}
+// Seconds on a graduated scale (Tide staff, Vessel bottle) for a hold with no
+// target: it shows a minute and extends in 30 s steps for long holds.
+export const scaleFor = (holdSec) => Math.max(60, Math.ceil((holdSec + 10) / 30) * 30)
 
 // Graduation step for a scale.
-export const blockFor = (scale) => (scale <= 60 ? 5 : scale <= 150 ? 10 : 30)
-
-// 0..1 growth for ungraduated gauges (Bloom, Dawn). A target lands at TARGET_AT;
-// past it, and without a target, growth eases on without ever stopping.
-export const TARGET_AT = 0.8
-export function growth(holdSec, target) {
-  if (!target) return 1 - Math.exp(-holdSec / 45)
-  if (holdSec < target) return TARGET_AT * (holdSec / target)
-  return TARGET_AT + (1 - TARGET_AT) * (1 - Math.exp(-(holdSec - target) / 20))
-}
+const blockFor = (scale) => (scale <= 60 ? 5 : scale <= 150 ? 10 : 30)
 
 // Closed smooth path through points (Catmull-Rom as cubic Béziers).
 export function smoothPath(pts) {

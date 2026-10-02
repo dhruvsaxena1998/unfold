@@ -1,0 +1,2432 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`breathModel > doneEarly 1`] = `
+{
+  "banked": 1,
+  "face": {
+    "frac": null,
+    "status": "Well breathed",
+    "sub": "breaths",
+    "whole": "4",
+  },
+  "goalLabel": "",
+  "goalMark": false,
+  "kind": "done",
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 1,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 2,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 3,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 4,
+      "to": 1,
+    },
+  ],
+  "mode": "breath",
+  "paused": false,
+  "phase": "ended",
+  "reached": false,
+  "reps": [
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+  ],
+  "restMs": 0,
+  "session": 1,
+  "sessionGoal": 64000,
+  "tap": {
+    "action": "Session finished",
+    "hint": "",
+  },
+}
+`;
+
+exports[`breathModel > doneNaturally 1`] = `
+{
+  "banked": 1,
+  "face": {
+    "frac": null,
+    "status": "Well breathed",
+    "sub": "breaths",
+    "whole": "4",
+  },
+  "goalLabel": "",
+  "goalMark": false,
+  "kind": "done",
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 1,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 2,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 3,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 4,
+      "to": 1,
+    },
+  ],
+  "mode": "breath",
+  "paused": false,
+  "phase": "ended",
+  "reached": false,
+  "reps": [
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+  ],
+  "restMs": 0,
+  "session": 1,
+  "sessionGoal": 64000,
+  "tap": {
+    "action": "Session finished",
+    "hint": "",
+  },
+}
+`;
+
+exports[`breathModel > holdIn 1`] = `
+{
+  "banked": 0.078125,
+  "face": {
+    "frac": null,
+    "status": "Hold",
+    "sub": "Breath 1 of 4",
+    "whole": "3",
+  },
+  "goalLabel": "",
+  "goalMark": false,
+  "kind": "holdIn",
+  "level": 1,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 1,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 2,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 3,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 4,
+      "to": 1,
+    },
+  ],
+  "mode": "breath",
+  "paused": false,
+  "phase": "hold",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.3125,
+      "state": "live",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.078125,
+  "sessionGoal": 64000,
+  "tap": {
+    "action": "Pause",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`breathModel > holdOut 1`] = `
+{
+  "banked": 0.203125,
+  "face": {
+    "frac": null,
+    "status": "Hold",
+    "sub": "Breath 1 of 4",
+    "whole": "3",
+  },
+  "goalLabel": "",
+  "goalMark": false,
+  "kind": "holdOut",
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 1,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 2,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 3,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 4,
+      "to": 1,
+    },
+  ],
+  "mode": "breath",
+  "paused": false,
+  "phase": "rest",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.8125,
+      "state": "live",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.203125,
+  "sessionGoal": 64000,
+  "tap": {
+    "action": "Pause",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`breathModel > in 1`] = `
+{
+  "banked": 0.0234375,
+  "face": {
+    "frac": null,
+    "status": "Breathe in",
+    "sub": "Breath 1 of 4",
+    "whole": "3",
+  },
+  "goalLabel": "",
+  "goalMark": false,
+  "kind": "in",
+  "level": 0.3086582838174551,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 1,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 2,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 3,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 4,
+      "to": 1,
+    },
+  ],
+  "mode": "breath",
+  "paused": false,
+  "phase": "hold",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.09375,
+      "state": "live",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.0234375,
+  "sessionGoal": 64000,
+  "tap": {
+    "action": "Pause",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`breathModel > lead 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": null,
+    "status": "Settle in",
+    "sub": "breathe in first",
+    "whole": "2",
+  },
+  "goalLabel": "",
+  "goalMark": false,
+  "kind": "lead",
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 1,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 2,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 3,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 4,
+      "to": 1,
+    },
+  ],
+  "mode": "breath",
+  "paused": false,
+  "phase": "idle",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0,
+  "sessionGoal": 64000,
+  "tap": {
+    "action": "Pause",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`breathModel > out 1`] = `
+{
+  "banked": 0.1484375,
+  "face": {
+    "frac": null,
+    "status": "Breathe out",
+    "sub": "Breath 1 of 4",
+    "whole": "3",
+  },
+  "goalLabel": "",
+  "goalMark": false,
+  "kind": "out",
+  "level": 0.6913417161825449,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 1,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 2,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 3,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 4,
+      "to": 1,
+    },
+  ],
+  "mode": "breath",
+  "paused": false,
+  "phase": "rest",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.59375,
+      "state": "live",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.1484375,
+  "sessionGoal": 64000,
+  "tap": {
+    "action": "Pause",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`breathModel > paused 1`] = `
+{
+  "banked": 0.078125,
+  "face": {
+    "frac": null,
+    "status": "Paused · Hold",
+    "sub": "Breath 1 of 4",
+    "whole": "3",
+  },
+  "goalLabel": "",
+  "goalMark": false,
+  "kind": "holdIn",
+  "level": 1,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 1,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 2,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 3,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 4,
+      "to": 1,
+    },
+  ],
+  "mode": "breath",
+  "paused": true,
+  "phase": "hold",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.3125,
+      "state": "live",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.078125,
+  "sessionGoal": 64000,
+  "tap": {
+    "action": "Resume",
+    "hint": "Paused",
+  },
+}
+`;
+
+exports[`breathModel > ready 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": null,
+    "status": "Box breathing",
+    "sub": "minutes · tap to begin",
+    "whole": "1:04",
+  },
+  "goalLabel": "",
+  "goalMark": false,
+  "kind": "ready",
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 1,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 2,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 3,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 4,
+      "to": 1,
+    },
+  ],
+  "mode": "breath",
+  "paused": false,
+  "phase": "idle",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0,
+  "sessionGoal": 64000,
+  "tap": {
+    "action": "Begin",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`routineModel > doneEarly 1`] = `
+{
+  "banked": 0.11666666666666667,
+  "face": {
+    "frac": null,
+    "status": "Routine done",
+    "sub": "held in total",
+    "whole": "0:07",
+  },
+  "goalLabel": "Hold 10 s",
+  "goalMark": false,
+  "kind": "done",
+  "level": 1,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 10,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 15,
+      "to": 1.2,
+    },
+  ],
+  "mode": "routine",
+  "paused": false,
+  "phase": "ended",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.7,
+      "state": "done",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.11666666666666667,
+  "sessionGoal": 60000,
+  "tap": {
+    "action": "Routine finished",
+    "hint": "",
+  },
+}
+`;
+
+exports[`routineModel > doneNaturally 1`] = `
+{
+  "banked": 1,
+  "face": {
+    "frac": null,
+    "status": "Routine done",
+    "sub": "held in total",
+    "whole": "1:00",
+  },
+  "goalLabel": "Hold 20 s",
+  "goalMark": false,
+  "kind": "done",
+  "level": 1,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 10,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 15,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 20,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 25,
+      "to": 1.2,
+    },
+  ],
+  "mode": "routine",
+  "paused": false,
+  "phase": "ended",
+  "reached": false,
+  "reps": [
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+  ],
+  "restMs": 0,
+  "session": 1,
+  "sessionGoal": 60000,
+  "tap": {
+    "action": "Routine finished",
+    "hint": "",
+  },
+}
+`;
+
+exports[`routineModel > gap 1`] = `
+{
+  "banked": 0.3333333333333333,
+  "face": {
+    "frac": null,
+    "status": "Next exercise",
+    "sub": "Hip",
+    "whole": "13",
+  },
+  "goalLabel": "Hold 20 s",
+  "goalMark": false,
+  "kind": "gap",
+  "level": 1,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 10,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 15,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 20,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 25,
+      "to": 1.2,
+    },
+  ],
+  "mode": "routine",
+  "paused": false,
+  "phase": "rest",
+  "reached": false,
+  "reps": [
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 2000,
+  "session": 0.3333333333333333,
+  "sessionGoal": 60000,
+  "tap": {
+    "action": "Pause",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`routineModel > lead 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": null,
+    "status": "Get ready",
+    "sub": "Calf",
+    "whole": "3",
+  },
+  "goalLabel": "Hold 10 s",
+  "goalMark": true,
+  "kind": "lead",
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 10,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 15,
+      "to": 1.2,
+    },
+  ],
+  "mode": "routine",
+  "paused": false,
+  "phase": "idle",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0,
+  "sessionGoal": 60000,
+  "tap": {
+    "action": "Pause",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`routineModel > midHold 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": null,
+    "status": "Rep 1 of 2",
+    "sub": "seconds left",
+    "whole": "6",
+  },
+  "goalLabel": "Hold 10 s",
+  "goalMark": true,
+  "kind": "hold",
+  "level": 0.45,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 10,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 15,
+      "to": 1.2,
+    },
+  ],
+  "mode": "routine",
+  "paused": false,
+  "phase": "hold",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.45,
+      "state": "live",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.075,
+  "sessionGoal": 60000,
+  "tap": {
+    "action": "Pause",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`routineModel > paused 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": null,
+    "status": "Paused · Rep 1 of 2",
+    "sub": "seconds left",
+    "whole": "6",
+  },
+  "goalLabel": "Hold 10 s",
+  "goalMark": true,
+  "kind": "hold",
+  "level": 0.45,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 10,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 15,
+      "to": 1.2,
+    },
+  ],
+  "mode": "routine",
+  "paused": true,
+  "phase": "hold",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.45,
+      "state": "live",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.075,
+  "sessionGoal": 60000,
+  "tap": {
+    "action": "Resume",
+    "hint": "Paused",
+  },
+}
+`;
+
+exports[`routineModel > ready 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": null,
+    "status": "Two stretches",
+    "sub": "minutes · tap to begin",
+    "whole": "1:30",
+  },
+  "goalLabel": "Hold 10 s",
+  "goalMark": true,
+  "kind": "ready",
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 10,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 15,
+      "to": 1.2,
+    },
+  ],
+  "mode": "routine",
+  "paused": false,
+  "phase": "idle",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0,
+  "sessionGoal": 60000,
+  "tap": {
+    "action": "Start routine",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`routineModel > rest 1`] = `
+{
+  "banked": 0.16666666666666666,
+  "face": {
+    "frac": null,
+    "status": "Rest",
+    "sub": "Next: rep 2 of 2",
+    "whole": "4",
+  },
+  "goalLabel": "Hold 10 s",
+  "goalMark": false,
+  "kind": "rest",
+  "level": 1,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 10,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 15,
+      "to": 1.2,
+    },
+  ],
+  "mode": "routine",
+  "paused": false,
+  "phase": "rest",
+  "reached": false,
+  "reps": [
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 1000,
+  "session": 0.16666666666666666,
+  "sessionGoal": 60000,
+  "tap": {
+    "action": "Pause",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`routineModel > secondExercise 1`] = `
+{
+  "banked": 0.3333333333333333,
+  "face": {
+    "frac": null,
+    "status": "Rep 1 of 2",
+    "sub": "seconds left",
+    "whole": "13",
+  },
+  "goalLabel": "Hold 20 s",
+  "goalMark": true,
+  "kind": "hold",
+  "level": 0.35,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 10,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 15,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 20,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 25,
+      "to": 1.2,
+    },
+  ],
+  "mode": "routine",
+  "paused": false,
+  "phase": "hold",
+  "reached": false,
+  "reps": [
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 0.35,
+      "state": "live",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.45,
+  "sessionGoal": 60000,
+  "tap": {
+    "action": "Pause",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`routineModel > wait between exercises 1`] = `
+{
+  "banked": 0.3333333333333333,
+  "face": {
+    "frac": null,
+    "status": "Next: Hip",
+    "sub": "Tap when you are in position",
+    "whole": "2/2",
+  },
+  "goalLabel": "Hold 20 s",
+  "goalMark": false,
+  "kind": "wait",
+  "level": 1,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.25,
+    },
+    {
+      "from": 0.25,
+      "sec": 10,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 15,
+      "to": 0.75,
+    },
+    {
+      "from": 0.75,
+      "sec": 20,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 25,
+      "to": 1.2,
+    },
+  ],
+  "mode": "routine",
+  "paused": false,
+  "phase": "rest",
+  "reached": false,
+  "reps": [
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 1,
+      "state": "done",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+    {
+      "level": 0,
+      "state": "todo",
+    },
+  ],
+  "restMs": 10000,
+  "session": 0.3333333333333333,
+  "sessionGoal": 60000,
+  "tap": {
+    "action": "Continue",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > ended, 30 s target 1`] = `
+{
+  "banked": 0.25,
+  "face": {
+    "frac": "0",
+    "status": "Last hold · 2",
+    "sub": "seconds",
+    "whole": "25",
+  },
+  "goalLabel": "Target 30 s",
+  "goalMark": true,
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.16666666666666666,
+    },
+    {
+      "from": 0.16666666666666666,
+      "sec": 10,
+      "to": 0.3333333333333333,
+    },
+    {
+      "from": 0.3333333333333333,
+      "sec": 15,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 20,
+      "to": 0.6666666666666666,
+    },
+    {
+      "from": 0.6666666666666666,
+      "sec": 25,
+      "to": 0.8333333333333334,
+    },
+    {
+      "from": 0.8333333333333334,
+      "sec": 30,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 35,
+      "to": 1.1666666666666667,
+    },
+    {
+      "from": 1.1666666666666667,
+      "sec": 40,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "ended",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.6666666666666666,
+      "state": "done",
+    },
+    {
+      "level": 0.8333333333333334,
+      "state": "done",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.25,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "Session finished",
+    "hint": "",
+  },
+}
+`;
+
+exports[`stretchModel > ended, no target 1`] = `
+{
+  "banked": 0.25,
+  "face": {
+    "frac": "0",
+    "status": "Last hold · 2",
+    "sub": "seconds",
+    "whole": "25",
+  },
+  "goalLabel": "Target 0 s",
+  "goalMark": false,
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.1,
+    },
+    {
+      "from": 0.1,
+      "sec": 10,
+      "to": 0.2,
+    },
+    {
+      "from": 0.2,
+      "sec": 15,
+      "to": 0.3,
+    },
+    {
+      "from": 0.3,
+      "sec": 20,
+      "to": 0.4,
+    },
+    {
+      "from": 0.4,
+      "sec": 25,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 30,
+      "to": 0.6,
+    },
+    {
+      "from": 0.6,
+      "sec": 35,
+      "to": 0.7,
+    },
+    {
+      "from": 0.7,
+      "sec": 40,
+      "to": 0.8,
+    },
+    {
+      "from": 0.8,
+      "sec": 45,
+      "to": 0.9,
+    },
+    {
+      "from": 0.9,
+      "sec": 50,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 55,
+      "to": 1.1,
+    },
+    {
+      "from": 1.1,
+      "sec": 60,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "ended",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.6666666666666666,
+      "state": "done",
+    },
+    {
+      "level": 0.8333333333333334,
+      "state": "done",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.25,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "Session finished",
+    "hint": "",
+  },
+}
+`;
+
+exports[`stretchModel > holdingOver, 30 s target 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": "4",
+    "status": "Hold 1",
+    "sub": "seconds",
+    "whole": "31",
+  },
+  "goalLabel": "Target reached",
+  "goalMark": true,
+  "level": 1.0466666666666666,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.16666666666666666,
+    },
+    {
+      "from": 0.16666666666666666,
+      "sec": 10,
+      "to": 0.3333333333333333,
+    },
+    {
+      "from": 0.3333333333333333,
+      "sec": 15,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 20,
+      "to": 0.6666666666666666,
+    },
+    {
+      "from": 0.6666666666666666,
+      "sec": 25,
+      "to": 0.8333333333333334,
+    },
+    {
+      "from": 0.8333333333333334,
+      "sec": 30,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 35,
+      "to": 1.1666666666666667,
+    },
+    {
+      "from": 1.1666666666666667,
+      "sec": 40,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "hold",
+  "reached": true,
+  "reps": [
+    {
+      "level": 1.0466666666666666,
+      "state": "live",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.17444444444444446,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "End hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > holdingOver, no target 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": "4",
+    "status": "Hold 1",
+    "sub": "seconds",
+    "whole": "31",
+  },
+  "goalLabel": "Target 0 s",
+  "goalMark": false,
+  "level": 0.628,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.1,
+    },
+    {
+      "from": 0.1,
+      "sec": 10,
+      "to": 0.2,
+    },
+    {
+      "from": 0.2,
+      "sec": 15,
+      "to": 0.3,
+    },
+    {
+      "from": 0.3,
+      "sec": 20,
+      "to": 0.4,
+    },
+    {
+      "from": 0.4,
+      "sec": 25,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 30,
+      "to": 0.6,
+    },
+    {
+      "from": 0.6,
+      "sec": 35,
+      "to": 0.7,
+    },
+    {
+      "from": 0.7,
+      "sec": 40,
+      "to": 0.8,
+    },
+    {
+      "from": 0.8,
+      "sec": 45,
+      "to": 0.9,
+    },
+    {
+      "from": 0.9,
+      "sec": 50,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 55,
+      "to": 1.1,
+    },
+    {
+      "from": 1.1,
+      "sec": 60,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "hold",
+  "reached": false,
+  "reps": [
+    {
+      "level": 1.0466666666666666,
+      "state": "live",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.17444444444444446,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "End hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > holdingUnder, 30 s target 1`] = `
+{
+  "banked": 0.06666666666666667,
+  "face": {
+    "frac": "3",
+    "status": "Hold 2",
+    "sub": "seconds",
+    "whole": "8",
+  },
+  "goalLabel": "Target 30 s",
+  "goalMark": true,
+  "level": 0.27666666666666667,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.16666666666666666,
+    },
+    {
+      "from": 0.16666666666666666,
+      "sec": 10,
+      "to": 0.3333333333333333,
+    },
+    {
+      "from": 0.3333333333333333,
+      "sec": 15,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 20,
+      "to": 0.6666666666666666,
+    },
+    {
+      "from": 0.6666666666666666,
+      "sec": 25,
+      "to": 0.8333333333333334,
+    },
+    {
+      "from": 0.8333333333333334,
+      "sec": 30,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 35,
+      "to": 1.1666666666666667,
+    },
+    {
+      "from": 1.1666666666666667,
+      "sec": 40,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "hold",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.4,
+      "state": "done",
+    },
+    {
+      "level": 0.27666666666666667,
+      "state": "live",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.11277777777777778,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "End hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > holdingUnder, no target 1`] = `
+{
+  "banked": 0.06666666666666667,
+  "face": {
+    "frac": "3",
+    "status": "Hold 2",
+    "sub": "seconds",
+    "whole": "8",
+  },
+  "goalLabel": "Target 0 s",
+  "goalMark": false,
+  "level": 0.166,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.1,
+    },
+    {
+      "from": 0.1,
+      "sec": 10,
+      "to": 0.2,
+    },
+    {
+      "from": 0.2,
+      "sec": 15,
+      "to": 0.3,
+    },
+    {
+      "from": 0.3,
+      "sec": 20,
+      "to": 0.4,
+    },
+    {
+      "from": 0.4,
+      "sec": 25,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 30,
+      "to": 0.6,
+    },
+    {
+      "from": 0.6,
+      "sec": 35,
+      "to": 0.7,
+    },
+    {
+      "from": 0.7,
+      "sec": 40,
+      "to": 0.8,
+    },
+    {
+      "from": 0.8,
+      "sec": 45,
+      "to": 0.9,
+    },
+    {
+      "from": 0.9,
+      "sec": 50,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 55,
+      "to": 1.1,
+    },
+    {
+      "from": 1.1,
+      "sec": 60,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "hold",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.4,
+      "state": "done",
+    },
+    {
+      "level": 0.27666666666666667,
+      "state": "live",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.11277777777777778,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "End hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > idle, 30 s target 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": "0",
+    "status": "Ready",
+    "sub": "seconds",
+    "whole": "0",
+  },
+  "goalLabel": "Target 30 s",
+  "goalMark": true,
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.16666666666666666,
+    },
+    {
+      "from": 0.16666666666666666,
+      "sec": 10,
+      "to": 0.3333333333333333,
+    },
+    {
+      "from": 0.3333333333333333,
+      "sec": 15,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 20,
+      "to": 0.6666666666666666,
+    },
+    {
+      "from": 0.6666666666666666,
+      "sec": 25,
+      "to": 0.8333333333333334,
+    },
+    {
+      "from": 0.8333333333333334,
+      "sec": 30,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 35,
+      "to": 1.1666666666666667,
+    },
+    {
+      "from": 1.1666666666666667,
+      "sec": 40,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "idle",
+  "reached": false,
+  "reps": [],
+  "restMs": 0,
+  "session": 0,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "Start hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > idle, no target 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": "0",
+    "status": "Ready",
+    "sub": "seconds",
+    "whole": "0",
+  },
+  "goalLabel": "Target 0 s",
+  "goalMark": false,
+  "level": 0,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.1,
+    },
+    {
+      "from": 0.1,
+      "sec": 10,
+      "to": 0.2,
+    },
+    {
+      "from": 0.2,
+      "sec": 15,
+      "to": 0.3,
+    },
+    {
+      "from": 0.3,
+      "sec": 20,
+      "to": 0.4,
+    },
+    {
+      "from": 0.4,
+      "sec": 25,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 30,
+      "to": 0.6,
+    },
+    {
+      "from": 0.6,
+      "sec": 35,
+      "to": 0.7,
+    },
+    {
+      "from": 0.7,
+      "sec": 40,
+      "to": 0.8,
+    },
+    {
+      "from": 0.8,
+      "sec": 45,
+      "to": 0.9,
+    },
+    {
+      "from": 0.9,
+      "sec": 50,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 55,
+      "to": 1.1,
+    },
+    {
+      "from": 1.1,
+      "sec": 60,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "idle",
+  "reached": false,
+  "reps": [],
+  "restMs": 0,
+  "session": 0,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "Start hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > longHold, 30 s target 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": null,
+    "status": "Hold 1",
+    "sub": "minutes : seconds",
+    "whole": "1:35",
+  },
+  "goalLabel": "Target reached",
+  "goalMark": true,
+  "level": 3.183333333333333,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.16666666666666666,
+    },
+    {
+      "from": 0.16666666666666666,
+      "sec": 10,
+      "to": 0.3333333333333333,
+    },
+    {
+      "from": 0.3333333333333333,
+      "sec": 15,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 20,
+      "to": 0.6666666666666666,
+    },
+    {
+      "from": 0.6666666666666666,
+      "sec": 25,
+      "to": 0.8333333333333334,
+    },
+    {
+      "from": 0.8333333333333334,
+      "sec": 30,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 35,
+      "to": 1.1666666666666667,
+    },
+    {
+      "from": 1.1666666666666667,
+      "sec": 40,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "hold",
+  "reached": true,
+  "reps": [
+    {
+      "level": 3.183333333333333,
+      "state": "live",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.5305555555555556,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "End hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > longHold, no target 1`] = `
+{
+  "banked": 0,
+  "face": {
+    "frac": null,
+    "status": "Hold 1",
+    "sub": "minutes : seconds",
+    "whole": "1:35",
+  },
+  "goalLabel": "Target 0 s",
+  "goalMark": false,
+  "level": 0.955,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 10,
+      "to": 0.1,
+    },
+    {
+      "from": 0.1,
+      "sec": 20,
+      "to": 0.2,
+    },
+    {
+      "from": 0.2,
+      "sec": 30,
+      "to": 0.3,
+    },
+    {
+      "from": 0.3,
+      "sec": 40,
+      "to": 0.4,
+    },
+    {
+      "from": 0.4,
+      "sec": 50,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 60,
+      "to": 0.6,
+    },
+    {
+      "from": 0.6,
+      "sec": 70,
+      "to": 0.7,
+    },
+    {
+      "from": 0.7,
+      "sec": 80,
+      "to": 0.8,
+    },
+    {
+      "from": 0.8,
+      "sec": 90,
+      "to": 0.9,
+    },
+    {
+      "from": 0.9,
+      "sec": 100,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 110,
+      "to": 1.1,
+    },
+    {
+      "from": 1.1,
+      "sec": 120,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "hold",
+  "reached": false,
+  "reps": [
+    {
+      "level": 3.183333333333333,
+      "state": "live",
+    },
+  ],
+  "restMs": 0,
+  "session": 0.5305555555555556,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "End hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > longRest, 30 s target 1`] = `
+{
+  "banked": 0.12222222222222222,
+  "face": {
+    "frac": null,
+    "status": "Resting",
+    "sub": "Hold 1 was 22.0 s",
+    "whole": "1:15",
+  },
+  "goalLabel": "Target 30 s",
+  "goalMark": true,
+  "level": 0.7333333333333333,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.16666666666666666,
+    },
+    {
+      "from": 0.16666666666666666,
+      "sec": 10,
+      "to": 0.3333333333333333,
+    },
+    {
+      "from": 0.3333333333333333,
+      "sec": 15,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 20,
+      "to": 0.6666666666666666,
+    },
+    {
+      "from": 0.6666666666666666,
+      "sec": 25,
+      "to": 0.8333333333333334,
+    },
+    {
+      "from": 0.8333333333333334,
+      "sec": 30,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 35,
+      "to": 1.1666666666666667,
+    },
+    {
+      "from": 1.1666666666666667,
+      "sec": 40,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "rest",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.7333333333333333,
+      "state": "done",
+    },
+  ],
+  "restMs": 75200,
+  "session": 0.12222222222222222,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "Start next hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > longRest, no target 1`] = `
+{
+  "banked": 0.12222222222222222,
+  "face": {
+    "frac": null,
+    "status": "Resting",
+    "sub": "Hold 1 was 22.0 s",
+    "whole": "1:15",
+  },
+  "goalLabel": "Target 0 s",
+  "goalMark": false,
+  "level": 0.44,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.1,
+    },
+    {
+      "from": 0.1,
+      "sec": 10,
+      "to": 0.2,
+    },
+    {
+      "from": 0.2,
+      "sec": 15,
+      "to": 0.3,
+    },
+    {
+      "from": 0.3,
+      "sec": 20,
+      "to": 0.4,
+    },
+    {
+      "from": 0.4,
+      "sec": 25,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 30,
+      "to": 0.6,
+    },
+    {
+      "from": 0.6,
+      "sec": 35,
+      "to": 0.7,
+    },
+    {
+      "from": 0.7,
+      "sec": 40,
+      "to": 0.8,
+    },
+    {
+      "from": 0.8,
+      "sec": 45,
+      "to": 0.9,
+    },
+    {
+      "from": 0.9,
+      "sec": 50,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 55,
+      "to": 1.1,
+    },
+    {
+      "from": 1.1,
+      "sec": 60,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "rest",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.7333333333333333,
+      "state": "done",
+    },
+  ],
+  "restMs": 75200,
+  "session": 0.12222222222222222,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "Start next hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > resting, 30 s target 1`] = `
+{
+  "banked": 0.12222222222222222,
+  "face": {
+    "frac": "7",
+    "status": "Resting",
+    "sub": "Hold 1 was 22.0 s",
+    "whole": "6",
+  },
+  "goalLabel": "Target 30 s",
+  "goalMark": true,
+  "level": 0.7333333333333333,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.16666666666666666,
+    },
+    {
+      "from": 0.16666666666666666,
+      "sec": 10,
+      "to": 0.3333333333333333,
+    },
+    {
+      "from": 0.3333333333333333,
+      "sec": 15,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 20,
+      "to": 0.6666666666666666,
+    },
+    {
+      "from": 0.6666666666666666,
+      "sec": 25,
+      "to": 0.8333333333333334,
+    },
+    {
+      "from": 0.8333333333333334,
+      "sec": 30,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 35,
+      "to": 1.1666666666666667,
+    },
+    {
+      "from": 1.1666666666666667,
+      "sec": 40,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "rest",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.7333333333333333,
+      "state": "done",
+    },
+  ],
+  "restMs": 6700,
+  "session": 0.12222222222222222,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "Start next hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;
+
+exports[`stretchModel > resting, no target 1`] = `
+{
+  "banked": 0.12222222222222222,
+  "face": {
+    "frac": "7",
+    "status": "Resting",
+    "sub": "Hold 1 was 22.0 s",
+    "whole": "6",
+  },
+  "goalLabel": "Target 0 s",
+  "goalMark": false,
+  "level": 0.44,
+  "marks": [
+    {
+      "from": 0,
+      "sec": 5,
+      "to": 0.1,
+    },
+    {
+      "from": 0.1,
+      "sec": 10,
+      "to": 0.2,
+    },
+    {
+      "from": 0.2,
+      "sec": 15,
+      "to": 0.3,
+    },
+    {
+      "from": 0.3,
+      "sec": 20,
+      "to": 0.4,
+    },
+    {
+      "from": 0.4,
+      "sec": 25,
+      "to": 0.5,
+    },
+    {
+      "from": 0.5,
+      "sec": 30,
+      "to": 0.6,
+    },
+    {
+      "from": 0.6,
+      "sec": 35,
+      "to": 0.7,
+    },
+    {
+      "from": 0.7,
+      "sec": 40,
+      "to": 0.8,
+    },
+    {
+      "from": 0.8,
+      "sec": 45,
+      "to": 0.9,
+    },
+    {
+      "from": 0.9,
+      "sec": 50,
+      "to": 1,
+    },
+    {
+      "from": 1,
+      "sec": 55,
+      "to": 1.1,
+    },
+    {
+      "from": 1.1,
+      "sec": 60,
+      "to": 1.2,
+    },
+  ],
+  "mode": "stretch",
+  "phase": "rest",
+  "reached": false,
+  "reps": [
+    {
+      "level": 0.7333333333333333,
+      "state": "done",
+    },
+  ],
+  "restMs": 6700,
+  "session": 0.12222222222222222,
+  "sessionGoal": 180000,
+  "tap": {
+    "action": "Start next hold",
+    "hint": "Tap anywhere or press Space",
+  },
+}
+`;

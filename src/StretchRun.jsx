@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { useSession } from './useSession.js'
-import { stretchModel } from './model.js'
+import { STRETCH_ACTION, stretchModel } from './model.js'
 import { clock, fine, mmss } from './format.js'
 import { usePref } from './store.js'
 import { ArmedButton, Field, Icon, SessionShell, Stepper, useMedia, useSpace, useWakeLock } from './ui.jsx'
@@ -55,7 +55,7 @@ export default function StretchRun({ theme, look, feedback, onSave, onHome }) {
   }
   useSpace(toggle)
 
-  const action = { idle: 'Start hold', hold: 'End hold', rest: 'Start next hold', ended: 'New session' }[s.phase]
+  const action = s.phase === 'ended' ? 'New session' : STRETCH_ACTION[s.phase]
   const restShown = s.phase === 'rest' ? s.rest : s.lastRest
   const maxHold = Math.max(1, ...s.rows.map((r) => r.hold))
 
